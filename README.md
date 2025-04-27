@@ -179,7 +179,7 @@ The `student_feedback` database includes:
 
 4. Fill out the form and submit. Duplicate submissions are prevented.
 
-## For Admins
+**For Admins**
 
 1. Log in with admin credentials.
 
