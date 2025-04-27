@@ -56,7 +56,7 @@ To run the College Feedback System, you need:
 - Clone this repository to your local machine:
 
 ```bash
- git clone https://github.com/your-username/college-feedback-system.git
+ git clone https://github.com/Mitesh076/college-feedback-system.git
 ```
 
 - Alternatively, download the ZIP file and extract it.
