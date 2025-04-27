@@ -165,8 +165,6 @@ The `student_feedback` database includes:
    - **faculty_feedback:** Stores faculty feedback with teacher ratings (CO1-CO7, 1-10 scale).
 
    - **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
-
-
 - **Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
 
 ## Acknowledgments
