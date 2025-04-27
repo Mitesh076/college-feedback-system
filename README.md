@@ -38,7 +38,7 @@ The **College Feedback System** is a web-based application designed to collect, 
 
 To run the College Feedback System, you need:
 
-- **XAMPP:** For Apache and MySQL servers (download from https://www.apachefriends.org/).
+- **XAMPP:** For Apache and MySQL servers (download from `https://www.apachefriends.org/`).
 - **Web Browser:** Chrome, Firefox, or any modern browser.
 - **PHP:** Version 7.4 or higher (included in XAMPP).
 - **MySQL:** Included in XAMPP.
@@ -158,13 +158,13 @@ college-feedback-system/
 
 The `student_feedback` database includes:
 
-   - **users:** Stores user data (`id`, `name`, `email`, `password`, `role`).
+- **users:** Stores user data (`id`, `name`, `email`, `password`, `role`).
 
-   - **course_feedback:** Stores course feedback with course outcomes (CO1-CO7, 1-10 scale).
+- **course_feedback:** Stores course feedback with course outcomes (CO1-CO7, 1-10 scale).
 
-   - **faculty_feedback:** Stores faculty feedback with teacher ratings (CO1-CO7, 1-10 scale).
+- **faculty_feedback:** Stores faculty feedback with teacher ratings (CO1-CO7, 1-10 scale).
 
-   - **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
+- **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
 - **Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
 
 ## Acknowledgments
