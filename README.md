@@ -25,6 +25,7 @@ The **College Feedback System** is a web-based application designed to collect, 
   - **Export:** Download feedback data as Excel files (`faculty-export-to-excel.php`, `course-export-to-excel.php`, `infrastructure-export-to-excel.php`).
   - **User Management:** Add or delete users (admins and students) via `view-users.php`.
   - **Feedback Options:** Select feedback types to view (`view-feedback-options.php`).
+  
 **General Features**
   - **Authentication:** Role-based login system (`login.php`, `authenticate.php`, `logout.php`) supporting students and admins.
   - **Database:** MySQL database (`student_feedback`) with tables for `users`, `course_feedback`, `faculty_feedback`, and `infrastructure_feedback`.
