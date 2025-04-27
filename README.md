@@ -95,7 +95,6 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
 - Verify it outputs "Connected successfully".
 
-
 ## Running the Project
 
 1. Start the XAMPP Control Panel.
@@ -104,7 +103,7 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
 3. Open a web browser and navigate to:
 
-```bash 
+```bash
  http://localhost/college-feedback-system/login.php
 ```
 
@@ -116,10 +115,9 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
    - **Note:** You may need to add users via `view-users.php` (admin access) or directly in the `users` table.
 
-
 ## Directory Structure
 
-```bash 
+```bash
 college-feedback-system/
 ├── admin-dashboard.php              # Admin dashboard
 ├── admin.css                        # CSS for admin pages (not fully integrated)
@@ -156,9 +154,20 @@ college-feedback-system/
 └── README.md                        # Project documentation
 ```
 
-## License
+## Database Schema
 
-This project is licensed under the ISC License.
+The `student_feedback` database includes:
+
+   - **users:** Stores user data (`id`, `name`, `email`, `password`, `role`).
+
+   - **course_feedback:** Stores course feedback with course outcomes (CO1-CO7, 1-10 scale).
+
+   - **faculty_feedback:** Stores faculty feedback with teacher ratings (CO1-CO7, 1-10 scale).
+
+   - **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
+
+
+-**Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
 
 ## Acknowledgments
 
