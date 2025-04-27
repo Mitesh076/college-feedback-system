@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Course Feedback Form</title>
+    <style>
+      :root {
+        --primary-color: #1e3a8a;
+        --accent-color: #7c3aed;
+        --hover-color: #6d28d9;
+        --text-color: #1f2937;
+        --secondary-text: #6b7280;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #d1d5db, #93c5fd, #c4b5fd);
+        background-size: 200% 200%;
+        animation: gradientFlow 12s ease infinite;
+        min-height: 100vh;
+        padding: 2rem;
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        max-width: 1000px;
+        width: 100%;
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .container:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba atributos(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        color: var(--primary-color);
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .student-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .student-details,
+      .student-feedback {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .student-details:hover,
+      .student-feedback:hover {
+        transform: translateY(-4px);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 1rem;
+        background: #f9fafb;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 8px rgba(124, 58, 237, 0.3);
+        background: #ffffff;
+        outline: none;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      input[type="radio"] {
+        margin-right: 0.5rem;
+        accent-color: var(--accent-color);
+      }
+
+      .question {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .question h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .submit-form {
+        text-align: center;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      input[type="submit"],
+      button {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        color: #ffffff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+        background: linear-gradient(90deg, #1e40af, #6d28d9);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      button {
+        background: linear-gradient(90deg, #6b7280, #4b5563);
+      }
+
+      button:hover {
+        background: linear-gradient(90deg, #4b5563, #374151);
+      }
+
+      .error {
+        color: #dc2626;
+        font-size: 0.9rem;
+        margin-top: -0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .co-block {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        border-left: 4px solid var(--accent-color);
+        transition: transform 0.3s ease;
+      }
+
+      .co-block:hover {
+        transform: translateY(-4px);
+      }
+
+      .co-block label {
+        margin-bottom: 0.75rem;
+        color: var(--primary-color);
+      }
+
+      .rating-options {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .rating-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating-option label {
+        margin-left: 0.25rem;
+        font-weight: normal;
+        cursor: pointer;
+        color: var(--secondary-text);
+        text-transform: none;
+      }
+
+      select {
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="%231f2937" d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat right 0.75rem center;
+        background-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem;
+        }
+
+        .student-details,
+        .student-feedback {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .rating-options {
+          gap: 0.5rem;
+        }
+
+        .submit-form {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        input[type="submit"],
+        button {
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Course Feedback Form</h1>
+      <form
+        id="feedbackForm"
+        class="student-form"
+        action="course-feedback.php"
+        method="POST"
+      >
+        <!-- Student Details Section -->
+        <div class="student-details">
+          <h3>Student Details</h3>
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="enrollment">Enrollment Number:</label>
+          <input
+            type="number"
+            id="enrollment"
+            name="enrollment"
+            required
+            pattern="[0-9]*"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+          />
+
+          <label for="year">Academic Year:</label>
+          <select name="year" id="year" required>
+            <option value="">Select Year</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+
+        <!-- Course Selection and Feedback -->
+        <div class="student-feedback">
+          <h3>Course Feedback</h3>
+
+          <label for="department">Department:</label>
+          <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="IT">Information Technology</option>
+            <option value="CE">Computer Engineering</option>
+          </select>
+
+          <label for="semester">Semester:</label>
+          <select id="semester" name="semester" required>
+            <option value="">Select Semester</option>
+            <option value="1">Sem 1</option>
+            <option value="2">Sem 2</option>
+            <option value="3">Sem 3</option>
+            <option value="4">Sem 4</option>
+            <option value="5">Sem 5</option>
+            <option value="6">Sem 6</option>
+            <option value="7">Sem 7</option>
+            <option value="8">Sem 8</option>
+          </select>
+
+          <label for="section">Section:</label>
+          <select name="section" id="section" required>
+            <option value="">Select Section</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+
+          <label for="subject">Subject:</label>
+          <select id="subject" name="subject" required></select>
+
+          <!-- Dynamic COs Display -->
+          <div id="coContainer"></div>
+
+          <!-- Additional Feedback -->
+          <div class="question">
+            <h4>Additional Feedback</h4>
+            <label for="comments">Any suggestions for improvement:</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-form">
+          <input type="submit" value="Submit Feedback" />
+          <button
+            onclick="window.location.href='student-dashboard.php'"
+            type="button"
+          >
+            Back to Dashboard
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // Your existing subjectsData object remains the same
+      const subjectsData = {
+        CE: {
+          1: {
+            Calculus: [
+              "Extend their learning of differential calculus at plus two levels",
+              "Get necessary knowledge of functions of several variables and its applications",
+              "Free hand traces the curves in Cartesian, Parametric and Polar curves",
+              "Extend their knowledge of integration of one variable to two and three variables and its applications",
+              "Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series",
+            ],
+            "Introduction to Computer Programming with C": [
+              "Formulate algorithm and/or flowchart for a given problem",
+              "Translate algorithm and/or flowchart into C program using correct syntax and execute it.",
+              "Write programs using control structures, arrays, functions, structures.",
+              "Decompose a problem and formulate solutions using functions.",
+              "Apply concepts of array, pointer, structure, functions, recursion and file management to solve engineering and/or scientific problems.",
+            ],
+            "Basics of Electrical and Electronics Engineering": [
+              "Extend their learning of differential calculus at plus two levels",
+              "Get necessary knowledge of functions of several variables and its applications",
+              "Free hand traces the curves in Cartesian, Parametric and Polar curves",
+              "Extend their knowledge of integration of one variable to two and three variables and its applications",
+              "Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series",
+            ],
+            "Indian Constitution": [
+              "Enhance human values, create awareness about law enactment and importance of the constitution.",
+              "To Understand the Fundamental Rights and Fundamental Duties of the Indian Citizen to instill morality, social values, honesty, dignity of life and their social responsibility.",
+              "Create Awareness of their Surroundings, Society, Social problems and their suitable solutions while keeping rights and duties of the citizen keeping in mind.",
+              "Understand distribution of powers and functions of Local Self Government",
+            ],
+            "Engineering Workshop": [
+              "Get acquainted with workshop layouts, safety norms, different shops, basic machines, trades and basic measuring instruments.",
+              "Get hands on experience for different job making practices.",
+              "Measure different electrical quantities and troubleshoot electrical and electronics appliances",
+              "Use basic commands of computer operating systems",
+            ],
+            "Professional Communication": [
+              "Define and discuss understanding of communication",
+              "Understand the listening skills through various tasks.",
+              "To build confidence for communicating in English and create interest for the life-long learning of English language.",
+              "To enhance reading skills, types and activities will be entertained. Communicate in various formal situations taking place in organizations",
+              "To enrich writing skills, using variety of techniques and tools that can be used to convey intended message in said situation.",
+              "To develop confidence for communicating in English and create interest for the life-long learning of English language.",
+            ],
+          },
+          2: {
+            "Linear Algebra Vector Calculus and ODE": [
+              "Use matrix methods and techniques to solve systems of equations and find eigenvalues and eigenvectors",
+              "Understand vector spaces and dimensionality",
+              "Learn vector and scalar fields, major theorems (Green's, Stokes', Gauss'), and applications",
+              "Apply methods for differential equations like Bernoulli's, Exact, Clairaut's",
+              "Find solutions to higher-order differential equations using different methods",
+            ],
+            "Object Oriented Programming": [
+              "Describe concepts of OOP",
+              "Write basic programs in C++ using class, objects, inheritance etc.",
+              "Write programs for real life problems using polymorphism, templates etc.",
+              "Develop an application using Object Oriented Programming",
+              "Write basic programs in Python",
+            ],
+            "Basic Mechanical Engineering": [
+              "Learn fundamental mechanical engineering concepts",
+              "Learn properties of ideal gases and steam",
+              "Understand energy conversion cycles",
+              "Know power transmission elements and applications",
+            ],
+            "Energy and Environment Science": [
+              "Comprehend environment and ecosystem components",
+              "Identify pollution types and control measures",
+              "Raise awareness about global environmental issues",
+              "Understand energy sources and related issues",
+              "Apply sustainability concepts",
+              "Study energy budget and energy management",
+            ],
+            "Engineering Graphics": [
+              "Understand drawing basics, standards, AutoCAD",
+              "Learn scales, curves, and applications",
+              "Master projection methods, orthographic projection, and surface development",
+              "Visualize objects and draw sectional views",
+            ],
+            Physics: [
+              "Think conceptually about engineering applications in physics",
+              "Use math techniques for problem-solving",
+              "Analyze data in labs and write coherent reports",
+              "Execute design projects with computational or lab skills and report effectively",
+            ],
+          },
+          3: {
+            "Data Structures": [
+              "Understand the importance of data structures for data processing",
+              "Understand linear data structures",
+              "Understand non-linear data structures",
+              "Understand sorting and searching techniques",
+            ],
+            "Database Management Systems": [
+              "Understand DBMS and query languages",
+              "Construct ER model and convert to relational model",
+              "Design normalized databases",
+              "Understand transaction management, recovery, and security",
+              "Manage query processing and optimization",
+              "Analyze file structure and storage",
+              "Develop and configure DBMS applications",
+            ],
+            "Digital Fundamentals": [
+              "Solve problems using number systems and Boolean algebra",
+              "Design simple circuits using logic gates",
+              "Design and implement combinational and sequential circuits",
+              "Develop digital logic to solve real-life problems",
+            ],
+            "Indian Ethos and Value Education": [
+              "Comprehend and practice Indian values",
+              "Apply ethical and value-based practices",
+              "Apply subject knowledge in real-life",
+              "Appreciate Indian heritage",
+            ],
+            "Fundamentals of Economics and Business Management": [
+              "Understand non-traditional manufacturing processes",
+              "Get familiar with MEMS and applications",
+              "Understand rapid prototyping and applications",
+              "Understand composite materials and manufacturing techniques",
+            ],
+            "Probability – Statistics and Numerical Methods": [
+              "Understand basic probability concepts",
+              "Understand basic statistical concepts",
+              "Understand well-known distributions",
+              "Use numerical methods for equations and linear systems",
+              "Apply interpolation and perform numerical differentiation/integration",
+              "Solve ODEs using numerical methods",
+            ],
+          },
+
+          4: {
+            "Computer Organization & Architecture": [
+              "Demonstrate and understand the basic principles and operations of digital computers.",
+              "Understand and classify the instruction set and distinguish the use of different instructions and apply it in assembly language programming.",
+              "Design processing unit using the concepts of ALU and control logic design.",
+              "Understand the architecture and functionality of central processing unit.",
+              "Design circuits for interfacing memory and I/O with processors.",
+            ],
+            "Operating System": [
+              "Understand the concepts, core structure of Operating Systems and basic architectural components involved in operating systems design.",
+              "Understand the process management policies and scheduling of processes by CPU.",
+              "Evaluate the requirement for process synchronization and coordination handled by operating system.",
+              "Describe and analyze the memory management and its allocation policies.",
+              "Analyze various device and resource management techniques for timesharing.",
+            ],
+            Seminar: [
+              "Improvement in Self-learning ability.",
+              "Presentation skills will be cultivated and improved.",
+              "Technical Report writing skills will be cultivated and improved.",
+            ],
+            "Discrete Mathematics": [
+              "Use logical notation and perform logical proofs.",
+              "Apply recursive functions, solve recurrence relations, and determine equivalent logic expressions.",
+              "Understand abstract notions by learning algebraic structures.",
+              "Learn Graph Theory applications in Computer Science.",
+            ],
+            "Programming With Java": [
+              "Use the syntax and semantics of java programming language and basic concepts of OOP.",
+              "Develop reusable programs using inheritance, polymorphism, interfaces, collections, generics, and packages.",
+              "Use exception handling and multithreading for efficient application development.",
+              "Design event driven GUI, networking, and IO applications.",
+            ],
+            "Technical Writing and Soft Skills": [
+              "Understand aspects of Technical Writing.",
+              "Develop Technical Writing Skills.",
+              "Be proficient in note taking and note making.",
+              "Enhance employability skills.",
+              "Understand the essence of soft skills.",
+              "Apply soft skills in social and professional settings.",
+              "Employ soft skills for career success.",
+            ],
+            "Entrepreneur Skills": [
+              "Understand entrepreneurship, importance, and characteristics.",
+              "Analyze feasibility studies and business proposal planning.",
+              "Learn various business plans (marketing, HR, financial, etc).",
+              "Learn legal aspects including IPR and laws.",
+            ],
+          },
+          5: {
+            "Design and Analysis of Algorithms": [
+              "Study the asymptotic performance of algorithms.",
+              "Apply complexity measures on divide and conquer algorithms.",
+              "Generate optimal solutions with Greedy and Dynamic techniques.",
+              "Solve problems using graph methods and data structures.",
+            ],
+            "Python for Data Science": [
+              "Identify data science needs and solve using Python basics.",
+              "Use popular Python packages for analytics and visualization.",
+              "Preprocess data for applications.",
+              "Understand probability and inference in data science.",
+            ],
+            "Computer Networks": [
+              "Understand OSI model and TCP/IP protocols.",
+              "Learn link layer protocols and addressing.",
+              "Design network architectures using routing algorithms.",
+              "Understand data transfer and congestion control protocols.",
+              "Understand application layer protocols and use cases.",
+            ],
+            "Web Development": [
+              "Understand web design and styling with tags.",
+              "Design websites with varying themes and layouts.",
+              "Improve UI/UX for mobile compatibility.",
+              "Use server-side programming for dynamic sites.",
+              "Perform CRUD operations with databases.",
+            ],
+            "Advanced Java Programming": [
+              "Apply Java/J2EE to build scalable n-tier applications.",
+              "Build distributed apps with JDBC and Hibernate.",
+              "Use servlets and JSP in web architecture.",
+              "Apply authentication and authorization.",
+              "Develop MVC-based applications.",
+            ],
+            "Computer Graphics": [
+              "Understand graphics hardware and display technologies.",
+              "Implement algorithms for 2D objects.",
+              "Apply 2D transformations and clipping.",
+              "Represent and transform 3D objects.",
+              "Understand illumination and color models.",
+            ],
+            "Distributed Computing": [
+              "Understand distributed systems and networking.",
+              "Learn interprocess and remote communication.",
+              "Apply synchronization and resource management algorithms.",
+              "Understand distributed computing principles.",
+              "Learn distributed computing algorithms.",
+            ],
+            "Energy Systems": [
+              "Compare power generation methods and tariffs.",
+              "Understand solar and wind power systems.",
+              "Apply knowledge using case studies.",
+              "Solve renewable energy problems.",
+              "Analyze energy system design techniques.",
+            ],
+            "Fuzzy Logic with Engineering Applications": [
+              "Differentiate fuzzy and classical set theories.",
+              "Introduce fuzziness in relations.",
+              "Fuzzify and defuzzify sets.",
+              "Develop fuzzy rule-based inference systems.",
+              "Apply fuzzy logic to real-world scenarios.",
+            ],
+            "Probability Theory with Applications": [
+              "CO-1 Derive statistical information and correlation.",
+              "Understand probability theory and distributions.",
+              "Learn sampling and sampling distributions.",
+              "Design and test statistical hypotheses.",
+            ],
+            "Disaster Management": [
+              "Understand disaster types and safety measures.",
+              "Analyze preparedness and mitigation strategies.",
+              "Evaluate disaster management acts and stakeholder roles.",
+              "Apply IT, GIS, GPS in disaster risk reduction.",
+            ],
+            "Project Management": [
+              "Initiate and plan projects.",
+              "Understand budgeting and scheduling.",
+              "Allocate resources.",
+              "Monitor and control projects.",
+              "Evaluate and close projects.",
+            ],
+          },
+          6: {
+            "Mini Project": [
+              "Understand, plan, and execute the project with team.",
+              "Students will be able to practice acquired knowledge within the chosen area of technology for project development.",
+              "Identify, discuss, and justify the technical aspects of the chosen project with a comprehensive and systematic approach.",
+              "Communicate and report effectively project related activities and findings.",
+            ],
+            "Software Engineering": [
+              "To be able to learn various the process models apply the SDLC process for domain specific software project.",
+              "To be able to gather technical and non-technical requirement and complete requirement engineering task for project.",
+              "To apply various types of software design techniques to design software project.",
+              "To be able to learn and apply testing techniques to various types of software project.",
+              "To understand software development and operation management activities with DevOps.",
+            ],
+            "Artificial Intelligence and Machine Learning": [
+              "Understand, analyze and apply various search techniques applied to solve real world problems.",
+              "Study and use various types of logic and knowledge representation schemes.",
+              "Learn the concepts of Feature Engineering and data preprocessing.",
+              "Understand and apply machine learning techniques to solve problems in applicable domains.",
+              "Evaluate and compare algorithms based on different metrics and parameters.",
+            ],
+            "Microprocessor Technologies": [
+              "Demonstration of various features of microprocessor-based systems.",
+              "Identification of architectural features of microprocessors including registers, ALU, Buses, Pin details.",
+              "Developing assembly language programs based on various instruction set of microprocessors.",
+              "Design on microcomputer-based system using interfacing of memory and input output peripherals.",
+              "Demonstration of advance microprocessor-based systems.",
+            ],
+            ".NET Technology": [
+              "Understand C# and the .NET framework namespace contents.",
+              "Able to implement the console and GUI applications using C# .Net.",
+              "Synthesize various navigation techniques for integrating web pages within the site.",
+              "Demonstrate the design of dynamic web page using ASP.NET Controls which interact with databases.",
+              "Construct and implement cookies and sessions as state management techniques and create a basic cloud-based application.",
+            ],
+            "Advanced Web Development": [
+              "An ability to learn the concepts of client-side programming.",
+              "Understand the concepts of AngularJS to extend basic HTML features.",
+              "Learn Node JS framework to build dynamic server-side applications.",
+              "Study the concept of NoSQL database and database connection with web application.",
+              "Design and implement full featured web application using MEAN stack development tools.",
+            ],
+            "Cyber Security": [
+              "Students will be able to explore various types of cyber-attacks.",
+              "Capable of analyzing and evaluating penetration testing and vulnerability assessment techniques.",
+              "To assure protection from the outside world, evaluate and secure Network and IT systems.",
+              "Students will be able to acquire knowledge of types of cybercrimes, cyber laws and how to protect themselves.",
+            ],
+            "Introduction to Cloud Computing": [
+              "Apply and design suitable Virtualization concept and Cloud Resource Management.",
+              "Identify the architecture, infrastructure and delivery models of cloud computing.",
+              "Address the core issues of cloud computing such as security, privacy and interoperability.",
+              "To appreciate the emergence of cloud as the next generation computing paradigm.",
+              "Choose the appropriate cloud player, Programming models and approach.",
+            ],
+            "Fuzzy Logic With Engineering Application": [
+              "Differentiate a Fuzzy set, its properties and the operations on Fuzzy sets from their classical set theory counterparts.",
+              "Introduce fuzziness in classical relations and perform various operations on fuzzy relations.",
+              "Fuzzify a crisp set and defuzzify a fuzzy set.",
+              "Develop a Fuzzy rule based inference system.",
+              "Apply the knowledge of fuzzy set theory and logic to various applications such as classification, clustering and development of a fuzzy controller.",
+            ],
+            "Supply Chain Management": [
+              "Appreciate the importance of logistics and supply chain management in overall success of any business/industrial sector.",
+              "Appreciate the importance and dynamics of supply chain management in any business/industrial sector.",
+              "Know the world class best practices being carried out in supply chain management and impact of IT in supply chain management.",
+              "Understand the sourcing, procurement, supplier selection and development process, pricing strategies and impact of customer relationship management in supply chain management.",
+              "Know how to measure the performance of supply chain operations.",
+            ],
+            "Smart Cities Planning and Management": [
+              "Understand the concept of smart cities and understand national and global policies to implement for smart city development.",
+              "Analyse the necessity of infrastructural development for smart cities. Identify components of infrastructure and Prepare infrastructure plan for smart city.",
+              "Apply planning and design techniques to different smart housing system.",
+              "Evaluate smart transport system and water resources systems for smart cities and its application.",
+            ],
+            "Multimedia Systems and Applications": [
+              "Understand the fundamentals of multimedia, media and data streams, sound/audio, image, graphics, and video.",
+              "Learn topics in data compression including coding requirements, source, entropy, and hybrid coding, JPEG, H.261 (px64), MPEG, MP3 and etc.",
+              "Explore the domain of networking and cloud computing services for Multimedia data processing.",
+              "Learn Multimedia applications including digital libraries, system software, toolkits, and virtual reality design.",
+            ],
+          },
+
+          7: {
+            "Summer Internship": [
+              "To demonstrate the application of knowledge and skill sets acquired from the institute.",
+              "To communicate and collaborate effectively and appropriately with different professionals in the work environment.",
+              "To exhibit critical thinking and problem-solving skills by analyzing underlying issues to challenges.",
+              "To demonstrate the ability to harness resources by analyzing challenges and considering opportunities.",
+            ],
+            "Compiler Design": [
+              "Understand the basic concepts of formal languages and automata theory.",
+              "Apply the knowledge of regular expressions and finite automata for lexical analyzer generator.",
+              "Understand and use context free grammars for top-down and bottom-up parsing.",
+              "Understand different representations of intermediate code, code optimization techniques and error recovery mechanisms.",
+              "Apply the knowledge of lex tool & yacc tools to develop a scanner & parser.",
+            ],
+            "Information and Network Security": [
+              "Develop concept of security needed in communication of data through computers and networks along with various possible attacks.",
+              "Understand various encryption mechanisms for secure transmission of data and management of key required for encryption.",
+              "Understand authentication requirements and study various authentication mechanisms.",
+              "Understand network security concepts and study different web security mechanisms.",
+            ],
+            "Internet of Things": [
+              "To understand the vision of IoT from a global context.",
+              "To understand the application of IoT.",
+              "Able to use of Devices, Gateways and Data Management in IoT.",
+              "Able to build state of the art architecture in IoT.",
+              "Able to design and build Application of IoT in Industrial and Commercial Automation and Real-World Design Constraints.",
+            ],
+            "Mobile Application Development": [
+              "Understand Android & flutter architecture, activities and their life cycle.",
+              "Use View Groups comprising layouts and Views in application.",
+              "Manage data binding, user interface events, maps.",
+              "Work with graphics, animation, still images and video.",
+              "Publish and distribute Android Application.",
+            ],
+            Blockchain: [
+              "Illustrate the concepts of Bitcoin and their usage.",
+              "Understand the basic concepts and technology used for blockchain.",
+              "Interact with a blockchain system by sending and reading transactions.",
+              "Design, build, and deploy smart contracts and distributed applications.",
+              "Evaluate security, privacy, and efficiency of a given blockchain system.",
+            ],
+            "Computer Vision and Image Processing": [
+              "Understand fundamentals of image processing and computer vision.",
+              "Understand and apply concepts of Image formation and Image Enhancement.",
+              "Understand and apply image segmentation and feature extraction methods.",
+              "Acquire knowledge about various Object Detection, Object Recognition, Motion estimation techniques and their applications.",
+              "Ability to apply various Image processing and Computer vision algorithms to solve real time problems.",
+            ],
+            "Big Data Analytics": [
+              "Understand Big Data and its analytics in the real world.",
+              "Analyze the Big Data frameworks like Hadoop and NOSQL to efficiently store and process Big Data for analytics.",
+              "Design algorithms to solve Data Intensive problems using the Map Reduce paradigm.",
+              "To solve data intensive problems and generate analytics using Pig, Spark, Hive and Sqoop.",
+            ],
+            "Data Mining and Business Intelligence": [
+              "To demonstrate an understanding of the importance of data mining and the principles of business intelligence.",
+              "To organize and prepare the data needed for data mining using pre preprocessing techniques.",
+              "To implement the appropriate data mining methods like classification, clustering, or Frequent Pattern mining on large data sets.",
+              "To define and apply metrics to measure the performance of various data mining algorithms.",
+            ],
+            "UI-UX Design": [
+              "Understand how to approach UI design.",
+              "Understand how user experience (UX) means and how it matters.",
+              "Understand iterative user-centered design of graphical user interfaces.",
+              "Apply the user Interfaces to different devices and requirements.",
+              "Create high quality professional documents and artifacts related to the design process.",
+            ],
+          },
+          8: {
+            "Industrial Internship": [
+              "To apply acquired knowledge in problem based exercises in real life industrial projects.",
+              "To acquire practical skills and experience working on projects alongside industry experts.",
+              "To acquire interpersonal skills and ability for team work through interaction with professionals in their field of study.",
+              "To communicate & report the industrial practices through technical presentations.",
+              "To understand the essence and need of industrial ethics.",
+              "To recognize the changes in the industrial practices due to technological changes and engage in lifelong learning.",
+            ],
+            "Industry-User Defined Project (UDP-IDP)": [
+              "To design and carry out the experiments/design/theoretical design/ simulations work in team in the predetermined methodology.",
+              "To analyze and interpret the obtained data for optimum solution using suitable Engineering and IT tools.",
+              "To elucidate the short comings and identify the scope for future work.",
+              "To communicate effectively the project the results/write effective reports to publicize the deduce solutions.",
+              "To develop ability to function and to work as an individual/ as a member/leader in diverse team.",
+              "To understand the essence and need of professional ethics during project documentation.",
+            ],
+            "Augmented Reality and Virtual Reality": [
+              "Understand the fundamental concepts of Augmented Reality &Virtual Reality.",
+              "Identify the applications of Augmented Reality &Virtual Reality.",
+              "Know the hardware and software for AR & VR.",
+              "Design and Develop Augmented Reality &Virtual Reality based applications.",
+            ],
+            "Deep Learning and Applications": [
+              "Realize characteristics of deep learning models that are useful to solve real-world problems.",
+              "Understand different models to create application using deep nets.",
+              "Identify and apply appropriate deep learning algorithms for analyzing the data for variety of problems.",
+              "Experiment the various challenges involved in designing deep learning models.",
+              "Apply deep learning algorithms for various applications such as Computer vision, Speech processing, NLP and other.",
+            ],
+            "Geographical Information Systems": [
+              "Understand the principles of GIS and its advantages and limitations.",
+              "Retrieve the information content of remotely sensed data.",
+              "Analyze remote sensing, spatial and attribute data for engineering applications and spatial problems.",
+              "Create GIS and cartographic outputs for presentation.",
+            ],
+            "High-Performance Computing": [
+              "To design, formulate, solve, and implement high performance versions of standard single threaded algorithms.",
+              "To demonstrate the architectural features in the GPU and MIC hardware accelerators.",
+              "To develop programs to extract maximum performance in a multicore, shared memory execution environment processor.",
+              "To analyze and deploy large scale parallel programs on tightly coupled parallel systems using the message passing paradigm.",
+            ],
+            "Introduction to Software Defined Networking": [
+              "To explain key benefits of SDN by the separation of data and control planes.",
+              "To interpret the SDN data plane devices and OpenFlow Protocols.",
+              "To implement the operation of SDN control plane with different controllers.",
+              "To apply techniques that enable applications to control the underlying network using SDN.",
+              "To describe Network Functions Virtualization components and their roles in SDN.",
+            ],
+          },
+        },
+        IT: {
+          1: {
+            Calculus: [
+              "Extend their learning of differential calculus at plus two levels",
+              "Get necessary knowledge of functions of several variables and its applications.",
+              "Free hand traces the curves in Cartesian, Parametric and Polar curves.",
+              "Extend their knowledge of integration of one variable to two and three variables and its applications.",
+              "Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series.",
+            ],
+            "Introduction to Computer Programming with C": [
+              "Formulate algorithm and/or flowchart for a given problem",
+              "Translate algorithm and/or flowchart into C program using correct syntax and execute it.",
+              "Write programs using control structures, arrays, functions, structures.",
+              "Decompose a problem and formulate solutions using functions.",
+              "Apply concepts of array, pointer, structure, functions, recursion and file management to solve engineering and/or scientific problems.",
+            ],
+            "Basics-of-Electrical-and-Electronics-Engineering": [
+              "Extend their learning of differential calculus at plus two levels",
+              "Get necessary knowledge of functions of several variables and its applications",
+              "Free hand traces the curves in Cartesian, Parametric and Polar curves",
+              "Extend their knowledge of integration of one variable to two and three variables and its applications",
+              "Check that given an infinite series is convergent or divergent...",
+            ],
+            "Indian Constitution": [
+              "Enhance human values, create awareness about law enactment and importance of the constitution.",
+              "To Understand the Fundamental Rights and Fundamental Duties...",
+              "Create Awareness of their Surroundings, Society, Social problems...",
+              "Understand distribution of powers and functions of Local Self Government",
+            ],
+            "Engineering Workshop": [
+              "Get acquainted with workshop layouts, safety norms...",
+              "Get hands on experience for different job making practices.",
+              "Measure different electrical quantities and troubleshoot...",
+              "Use basic commands of computer operating systems",
+            ],
+            "Professional Communication": [
+              "Define and discuss understanding of communication",
+              "Understand the listening skills through various tasks.",
+              "To build confidence for communicating in English...",
+              "To enhance reading skills...",
+              "To enrich writing skills using various techniques...",
+              "To develop confidence for communicating in English...",
+            ],
+          },
+          2: {
+            "Linear Algebra Vector Calculus and ODE": [
+              "Use matrix methods to solve system of linear equations...",
+              "Understand the abstract notions of vector space...",
+              "Learn vector/scalar fields and apply major theorems...",
+              "Apply methods like Bernoulli's, Exact, Clairaut's equations...",
+              "Solve higher-order linear differential equations...",
+            ],
+            "Object Oriented Programming": [
+              "Describe concepts of OOP.",
+              "Write basic programs in C++...",
+              "Write programs for real life problems...",
+              "Develop an application using OOP.",
+              "Write basic programs in Python.",
+            ],
+            "Basic Mechanical Engineering": [
+              "Learn fundamental concepts in mechanical engineering.",
+              "Learn properties of ideal gases and steam.",
+              "Understand energy conversion cycles.",
+              "Learn about power transmission elements.",
+            ],
+            "Energy and Environment Science": [
+              "Understand environment and ecosystem components.",
+              "Identify types of pollution and control methods.",
+              "Create awareness about global environmental issues.",
+              "Understand energy sources and their impacts.",
+              "Apply sustainability concepts.",
+              "Study energy management options.",
+            ],
+            "Engineering Graphics": [
+              "Learn drawing basics and AutoCAD.",
+              "Understand scales and engineering curves.",
+              "Learn orthographic projection and surface development.",
+              "Visualize and draw sectional views.",
+            ],
+            Physics: [
+              "Understand core concepts relevant to engineering.",
+              "Apply mathematical techniques to solve physics problems.",
+              "Analyze lab data and handle instruments.",
+              "Present project work using written/oral communication.",
+            ],
+          },
+          3: {
+            "Data Structures": [
+              "Understand importance of data structures.",
+              "Learn linear data structures.",
+              "Learn non-linear data structures.",
+              "Apply sorting/searching techniques.",
+            ],
+            "Database Management Systems": [
+              "Understand DBMS and query languages.",
+              "Construct and transform E-R models.",
+              "Design normalized databases.",
+              "Understand transactions and recovery.",
+              "Query processing and optimization.",
+              "Analyze file structure and storage.",
+              "Install and use DBMS in business context.",
+            ],
+            "Digital Fundamentals": [
+              "Solve problems using number systems and Boolean algebra.",
+              "Design circuits using logic gates.",
+              "Build combinational and sequential circuits.",
+              "Apply digital logic to real-life problems.",
+              "Apply digital logic in real-life scenarios.",
+            ],
+            "Indian Ethos and Value Education": [
+              " Comprehend Indian Ethos and Value Systems.",
+              " Apply value-based ethics.",
+              " Apply knowledge practically.",
+              " Appreciate Indian heritage.",
+            ],
+            "Fundamentals of Economics and Business Management": [
+              "Understand non-traditional manufacturing processes.",
+              "Learn about MEMS and applications.",
+              "Understand rapid prototyping.",
+              "Learn composite manufacturing techniques.",
+            ],
+            "Probability – Statistics and Numerical Methods": [
+              "Understand basic probability concepts.",
+              "Learn statistical measures.",
+              "Understand distributions.",
+              "Solve algebraic equations numerically.",
+              " Use interpolation/differentiation/integration methods.",
+              "Solve differential equations numerically.",
+            ],
+          },
+          4: {
+            "Computer Organization & Architecture": [
+              "Demonstrate and understand the basic principles and operations of digital computers.",
+              "Understand and classify the instruction set and distinguish the use of different instructions and apply it in assembly language programming.",
+              "Design processing unit using the concepts of ALU and control logic design.",
+              "Understand the architecture and functionality of central processing unit.",
+              "Design circuits for interfacing memory and I/O with processors.",
+            ],
+            "Operating System": [
+              "Understand the concepts, core structure of Operating Systems and basic architectural components involved in operating systems design.",
+              "Understand the process management policies and scheduling of processes by CPU.",
+              "Evaluate the requirement for process synchronization and coordination handled by operating system.",
+              "Describe and analyze the memory management and its allocation policies.",
+              "Analyze various device and resource management techniques for timesharing.",
+            ],
+            Seminar: [
+              "Improvement in Self-learning ability.",
+              "Presentation skills will be cultivated and improved.",
+              "Technical Report writing skills will be cultivated and improved.",
+            ],
+            "Computer Networks": [
+              "Understand network fundamental, concepts of OSI reference model and real-world protocol suite such as TCP/IP.",
+              "Learn different link layer terminologies like error detection-correction, multiple access protocol and link layer addressing used in network.",
+              "Ability to design network architecture and to apply various routing algorithms for network-layer packet delivery.",
+              "Learn essential principles of a connectionless and connection-oriented protocols used for reliable data transfer, flow control and congestion control.",
+              "Understand basic protocols of application layer and how they can be used to assist in network design and implementation.",
+            ],
+            "Programming With Java": [
+              "Use the syntax and semantics of java programming language and basic concepts of OOP.",
+              "Develop reusable programs using the concepts of inheritance, polymorphism, interfaces, collection framework, generic programming and packages.",
+              "Demonstrate understanding and use of different exception handling mechanisms and concept of multithreading for robust faster and efficient application development.",
+              "Design event driven GUI, networking and IO applications which mimic the real word scenarios.",
+            ],
+            "Technical Writing and Soft Skills": [
+              "To be able to understand aspects of Technical Writing.",
+              "To develop Technical Writing Skills.",
+              "To be proficient in note taking and note making.",
+              "To enhance employability skills.",
+              "To understand the significance and essence of a wide range of soft skills.",
+              "To learn how to apply soft skills in a wide range of routine social and professional settings.",
+              "To learn how to employ soft skills to enhance employability and ensure workplace and career success.",
+            ],
+            "Entrepreneur Skills": [
+              "Aware about Entrepreneur and Entrepreneurship, importance, characteristics.",
+              "Analyzing entrepreneur feasibility study and thinking of business proposal plan.",
+              "Learn about various business plans like organizational, marketing, financial, Human Resource etc.",
+              "Get acquainted about legal issues related to IPR and other laws.",
+            ],
+          },
+          5: {
+            "Design and Analysis of Algorithms": [
+              "To study the asymptotic performance of algorithms.",
+              "Apply various complexity measures and find out performance of the algorithm through divide and conquer like searching and sorting.",
+              "To generate optimal solutions by applying various Greedy and Dynamic algorithms.",
+              "To apply fundamental algorithms to model engineering problem solving using various graph methods or using suitable data structures.",
+            ],
+            "Web Development": [
+              "Understanding the basics of Web Designing and usage of various tags along with appropriate styling.",
+              "Designing websites based on different themes, layouts, and functionalities.",
+              "Enhancing UI/UX by developing web pages more adaptable to different mobile platforms.",
+              "Learn how to use Server-side programming for creating dynamic web services along with customized requirements.",
+              "Connectivity with Databases and applying CRUD operations for information storage and retrieval.",
+            ],
+            "Advanced Java Programming": [
+              "Understand and apply the concepts of Java/J2EE to build scalable n-tiered web applications.",
+              "To Learn and Develop distributed applications by Java Database Connectivity and Hibernate Technologies.",
+              "Describe and develop how servlets and Java Server Pages (JSP) fit into a Java-based web application architecture.",
+              "Demonstrate Understanding and Apply authentication and authorization on Web-application's resources.",
+              "Develop and deploy MVC based application.",
+            ],
+            "Energy Systems": [
+              "Compare various means of conventional electrical power generation and evaluate load curves, tariff structures and power factor and load power factor improvement.",
+              "Power generation using solar and wind energy looking to current energy and environment scenario.",
+              "Understand Energy generation and Problem using field case studies.",
+              "Ability to solve the problems in different Renewable energy fields.",
+              "Learn Applications and Understanding about the Design and analysis techniques.",
+            ],
+            "Probability Theory with Applications": [
+              "Students will be able to derive useful statistical information from the data, understand the relationship between two variables and quantize the amount of correlation between the variables.",
+              "Students will be made familiar with the basic concepts of probability theory, types of random variables and corresponding probability distributions with their applications to real life problems.",
+              "Students will be able to realize the importance of sampling and know different types of sampling distributions corresponding to the test statistics of interest.",
+              "Students will be able to design an appropriate hypothesis to validate the claims made about various statistics and test such claims.",
+            ],
+            "Disaster Management": [
+              "Understand various types of natural and manmade disaster and safety measures.",
+              "Analyse disasters, disaster preparedness and apply the mitigation measures.",
+              "Evaluate disaster management acts and guidelines along with role of various stakeholders during disasters.",
+              "Apply IT applications, remote sensing, GIS and GPS in risk reduction.",
+            ],
+            "Project Management": [
+              "Learning how to initiate and plan projects.",
+              "Understanding of budgeting and scheduling of project.",
+              "Learning how to allocate resources to techniques.",
+              "Monitoring and Controlling the Project.",
+              "Evaluating and Terminating the Project.",
+            ],
+            "Cyber Security": [
+              "Students will be able to explore various types of cyber-attacks.",
+              "Capable of analyzing and evaluating penetration testing and vulnerability assessment techniques.",
+              "To assure protection from the outside world, evaluate and secure Network and IT systems.",
+              "Students will be able to acquire knowledge of types of cybercrimes, cyber laws and how to protect themselves.",
+            ],
+            "Software Engineering": [
+              "To be able to learn various the process models apply the SDLC process for domain specific software project.",
+              "To be able to gather technical and non-technical requirement and complete requirement engineering task for project.",
+              "To apply various types of software design techniques to design software project.",
+              "To be able to learn and apply testing techniques to various types of software project.",
+              "To understand software development and operation management activities with DevOps",
+            ],
+            "Artificial Intelligence": [
+              "Understand and apply the search techniques for solving real world problems.",
+              "Learn and use various knowledge representation and reasoning methods.",
+              "Study and use of AI in game playing, planning and NLP.",
+              "Apply of genetic algorithms in search and optimization tasks.",
+              "Develop solution of AI problems with by using logic programming.",
+            ],
+            "Programming with Python": [
+              "Write, Test and Debug Python Programs.",
+              "Use functions and represent Compound data using Lists, Tuples and Dictionaries.",
+              "Text filtering with regular expressions in Python.",
+              "Data manipulation and data visualization in Python.",
+              "Create GUI applications in Python.",
+            ],
+          },
+
+          6: {
+            "Mini Project": [
+              "Understand, plan, and execute the project with team.",
+              "Students will be able to practice acquired knowledge within the chosen area of technology for project development.",
+              "Identify, discuss, and justify the technical aspects of the chosen project with a comprehensive and systematic approach.",
+              "Communicate and report effectively project related activities and findings.",
+            ],
+            "Information and Network Security": [
+              "Develop concept of security needed in communication of data through computers and networks along with various possible attacks.",
+              "Understand various encryption mechanisms for secure transmission of data and management of key required for encryption.",
+              "Understand authentication requirements and study various authentication mechanisms.",
+              "Understand network security concepts and study different web security mechanisms.",
+            ],
+            "Machine Learning": [
+              "Understand the concepts of learning models and how to evaluate the models generated from data set.",
+              "Synthesize concept of supervised learning classification techniques.",
+              "Demonstrate the numerical prediction using regression techniques.",
+              "Examine and apply unsupervised techniques on unlabelled dataset.",
+            ],
+            "Internet of Things": [
+              "To understand the vision of IoT from a global context.",
+              "To understand the application of IoT.",
+              "Able to use of Devices, Gateways and Data Management in IoT.",
+              "Able to build state of the art architecture in IoT.",
+              "Able to design and build Application of IoT in Industrial and Commercial Automation and Real-World Design Constraints.",
+            ],
+            "Computer Vision and Image Processing": [
+              "Understand fundamentals of image processing and computer vision.",
+              "Understand and apply concepts of Image formation and Image Enhancement.",
+              "Understand and apply image segmentation and feature extraction methods.",
+              "Acquire knowledge about various Object Detection, Object Recognition, Motion estimation techniques and their applications.",
+              "Ability to apply various Image processing and Computer vision algorithms to solve real time problems.",
+            ],
+            "Advanced Web Development": [
+              "An ability to learn the concepts of client-side programming.",
+              "Understand the concepts of AngularJS to extend basic HTML features.",
+              "Learn Node JS framework to build dynamic server-side applications.",
+              "Study the concept of NoSQL database and database connection with web application.",
+              "Design and implement full featured web application using MEAN stack development tools.",
+            ],
+            "Supply Chain Management": [
+              "Appreciate the importance of logistics and supply chain management in overall success of any business/industrial sector.",
+              "Appreciate the importance and dynamics of supply chain management in any business/industrial sector.",
+              "Know the world class best practices being carried out in supply chain management and impact of IT in supply chain management.",
+              "Understand the sourcing, procurement, supplier selection and development process, pricing strategies and impact of customer relationship management in supply chain management.",
+              "Know how to measure the performance of supply chain operations.",
+            ],
+            "Smart Cities Planning and Management": [
+              "Understand the concept of smart cities and understand national and global policies to implement for smart city development.",
+              "Analyse the necessity of infrastructural development for smart cities. Identify components of infrastructure and Prepare infrastructure plan for smart city.",
+              "Apply planning and design techniques to different smart housing system.",
+              "Evaluate smart transport system and water resources systems for smart cities and its application.",
+            ],
+            "Multimedia Systems and Applications": [
+              "Understand the fundamentals of multimedia, media and data streams, sound/audio, image, graphics, and video.",
+              "Learn topics in data compression including coding requirements, source, entropy, and hybrid coding, JPEG, H.261 (px64), MPEG, MP3 and etc.",
+              "Explore the domain of networking and cloud computing services for Multimedia data processing.",
+              "Learn Multimedia applications including digital libraries, system software, toolkits, and virtual reality design.",
+            ],
+          },
+          7: {
+            "Summer Internship": [
+              "To demonstrate the application of knowledge and skill sets acquired from the institute.",
+              "To communicate and collaborate effectively and appropriately with different professionals in the work environment.",
+              "To exhibit critical thinking and problem-solving skills by analyzing underlying issues to challenges.",
+              "To demonstrate the ability to harness resources by analyzing challenges and considering opportunities.",
+            ],
+            "Data Science and Visualization": [
+              "Identify the data types, the relationship between data, and the visualization techniques for data.",
+              "To be able to apply the concept of probability, sampling, distribution, and estimation in solving real time problems.",
+              "To be able to implement various data visualization techniques and draw basic and advanced graphics shapes using SVG and Canvas.",
+              "Apply appropriate data visualization techniques on multiple data files and draw different charts.",
+              "Identify the data types, the relationship between data, and the visualization techniques for data.",
+            ],
+            "Introduction to Cloud Computing": [
+              "Apply and design suitable Virtualization concept and Cloud Resource Management.",
+              "Identify the architecture, infrastructure and delivery models of cloud computing.",
+              "Address the core issues of cloud computing such as security, privacy and interoperability.",
+              "To appreciate the emergence of cloud as the next generation computing paradigm.",
+              "Choose the appropriate cloud player, Programming models and approach.",
+            ],
+            "Language Processors": [
+              "To understand the working of Language Processors.",
+              "Explain and classify different methodologies, concepts, and approaches to System Programming.",
+              "Ability to apply automata theory and knowledge on formal languages.",
+              "Ability to identify and select suitable parsing strategies for a compiler for various cases.",
+              "Build various system programs using language processor development tools such as YACC and Lex.",
+            ],
+            "Mobile Application Development": [
+              "Understand Android & flutter architecture, activities and their life cycle.",
+              "Use View Groups comprising layouts and Views in application.",
+              "Manage data binding, user interface events, maps.",
+              "Work with graphics, animation, still images and video.",
+              "Publish and distribute Android Application.",
+            ],
+            "Big Data Analytics": [
+              "Understand Big Data and its analytics in the real world.",
+              "Analyze the Big Data frameworks like Hadoop and NOSQL to efficiently store and process Big Data for analytics.",
+              "Design algorithms to solve Data Intensive problems using the Map Reduce paradigm.",
+              "To solve data intensive problems and generate analytics using Pig, Spark, Hive and Sqoop.",
+            ],
+            "Advanced Software Engineering": [
+              "To Understand the fundamentals of DevOps concepts like integration and DevOps framework configuration.",
+              "To Understand the version control system to track changes in development.",
+              "To Learn about the integration and container ecosystem using tools like Jenkins and Docker.",
+              "To understand and apply DevOps testing, security, and monitoring aspect in application.",
+            ],
+            "Deep Learning and Applications": [
+              "Realize characteristics of deep learning models that are useful to solve real-world problems.",
+              "Understand different models to create application using deep nets.",
+              "Identify and apply appropriate deep learning algorithms for analyzing the data for variety of problems.",
+              "Experiment the various challenges involved in designing deep learning models.",
+              "Apply deep learning algorithms for various applications such as Computer vision, Speech processing, NLP and other.",
+            ],
+            "Managment of IT Infrastructure": [
+              "Learn the fundamentals of IT Infrastructure management.",
+              "Understand and manage storage and backup requirements for an organization.",
+              "Establish and maintain networking for an organizational requirement.",
+              "Perform Troubleshooting for IT infrastructure.",
+              "Analyze the importance of Security in IT infrastructure and Risk management.",
+            ],
+            "UI-UX Design": [
+              "Understand how to approach UI design.",
+              "Understand how user experience (UX) means and how it matters.",
+              "Understand iterative user-centered design of graphical user interfaces.",
+              "Apply the user Interfaces to different devices and requirements.",
+              "Create high quality professional documents and artifacts related to the design process.",
+            ],
+          },
+          8: {
+            "Industrial Internship": [
+              "To apply acquired knowledge in problem based exercises in real life industrial projects.",
+              "To acquire practical skills and experience working on projects alongside industry experts.",
+              "To acquire interpersonal skills and ability for team work through interaction with professionals in their field of study.",
+              "To communicate & report the industrial practices through technical presentations.",
+              "To understand the essence and need of industrial ethics.",
+              "To recognize the changes in the industrial practices due to technological changes and engage in lifelong learning.",
+            ],
+            "Industry-User Defined Project (UDP-IDP)": [
+              "To design and carry out the experiments/design/theoretical design/ simulations work in team in the predetermined methodology.",
+              "To analyze and interpret the obtained data for optimum solution using suitable Engineering and IT tools.",
+              "To elucidate the short comings and identify the scope for future work.",
+              "To communicate effectively the project the results/write effective reports to publicize the deduce solutions.",
+              "To develop ability to function and to work as an individual/ as a member/leader in diverse team.",
+              "To understand the essence and need of professional ethics during project documentation.",
+            ],
+            "Augmented Reality and Virtual Reality": [
+              "Understand the fundamental concepts of Augmented Reality & Virtual Reality.",
+              "Identify the applications of Augmented Reality & Virtual Reality.",
+              "Know the hardware and software for AR & VR.",
+              "Design and Develop Augmented Reality & Virtual Reality based applications.",
+            ],
+            "Service Oriented Computing": [
+              "To understand principles & technologies of service-oriented architecture.",
+              "To analyze the appropriate framework components and market leading tools to create, implement and consume web services.",
+              "To apply object-oriented programming principles for the creation of web service solutions.",
+              "To identify the requirements of a medium-difficulty programming task and create software that meets the requirements.",
+            ],
+            "Geographical Information Systems": [
+              "Understand the principles of GIS and its advantages and limitations.",
+              "Retrieve the information content of remotely sensed data.",
+              "Analyze remote sensing, spatial and attribute data for engineering applications and spatial problems.",
+              "Create GIS and cartographic outputs for presentation.",
+            ],
+            "High-Performance Computing": [
+              "To design, formulate, solve, and implement high performance versions of standard single threaded algorithms.",
+              "To demonstrate the architectural features in the GPU and MIC hardware accelerators.",
+              "To develop programs to extract maximum performance in a multicore, shared memory execution environment processor.",
+              "To analyze and deploy large scale parallel programs on tightly coupled parallel systems using the message passing paradigm.",
+            ],
+            "Introduction to Software Defined Networking": [
+              "To explain key benefits of SDN by the separation of data and control planes.",
+              "To interpret the SDN data plane devices and OpenFlow Protocols.",
+              "To implement the operation of SDN control plane with different controllers.",
+              "To apply techniques that enable applications to control the underlying network using SDN.",
+              "To describe Network Functions Virtualization components and their roles in SDN.",
+            ],
+            "Natural Language Processing": [
+              "Understand the basic concepts and requirements of NLP.",
+              "Understand and apply various NLP Models and Algorithms.",
+              "Design and develop basic applications for text or information extraction.",
+              "Apply Machine translation techniques for language translation.",
+            ],
+          },
+        },
+      };
+      const deptSelect = document.getElementById("department");
+      const semSelect = document.getElementById("semester");
+      const subjSelect = document.getElementById("subject");
+      const coContainer = document.getElementById("coContainer");
+      const enrollmentInput = document.getElementById("enrollment");
+
+      // Restrict enrollment input to numbers only
+      enrollmentInput.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, "");
+      });
+
+      function populateSubjects() {
+        subjSelect.innerHTML = '<option value="">Select Subject</option>';
+        coContainer.innerHTML = "";
+        const dept = deptSelect.value;
+        const sem = semSelect.value;
+        if (dept && sem && subjectsData[dept][sem]) {
+          Object.keys(subjectsData[dept][sem]).forEach((subj) => {
+            const opt = document.createElement("option");
+            opt.value = subj;
+            opt.textContent = subj;
+            subjSelect.appendChild(opt);
+          });
+        }
+      }
+
+      function showCOs() {
+        coContainer.innerHTML = "";
+        const dept = deptSelect.value;
+        const sem = semSelect.value;
+        const subj = subjSelect.value;
+
+        if (dept && sem && subj && subjectsData[dept][sem][subj]) {
+          // Add hidden subject fields
+          const subjectInput = document.createElement("input");
+          subjectInput.type = "hidden";
+          subjectInput.name = "subject";
+          subjectInput.value = subj;
+          coContainer.appendChild(subjectInput);
+
+          const subjectNameInput = document.createElement("input");
+          subjectNameInput.type = "hidden";
+          subjectNameInput.name = "subject_name";
+          subjectNameInput.value = subj;
+          coContainer.appendChild(subjectNameInput);
+
+          // Add CO fields
+          subjectsData[dept][sem][subj].forEach((co, index) => {
+            const coNum = index + 1;
+            if (coNum > 7) return; // We only support up to 6 COs in this structure
+
+            const coBlock = document.createElement("div");
+            coBlock.className = "co-block";
+
+            // CO Text (hidden)
+            const coTextInput = document.createElement("input");
+            coTextInput.type = "hidden";
+            coTextInput.name = `co${coNum}_text`;
+            coTextInput.value = co;
+            coBlock.appendChild(coTextInput);
+
+            // CO Label
+            const coLabel = document.createElement("label");
+            coLabel.textContent = `CO-${coNum}: ${co}`;
+            coBlock.appendChild(coLabel);
+
+            // Rating Options (1-10)
+            const ratingDiv = document.createElement("div");
+            ratingDiv.className = "rating-options";
+
+            for (let i = 1; i <= 10; i++) {
+              const optionDiv = document.createElement("div");
+              optionDiv.className = "rating-option";
+
+              const radio = document.createElement("input");
+              radio.type = "radio";
+              radio.id = `co${coNum}_rating${i}`;
+              radio.name = `co${coNum}_rating`;
+              radio.value = i;
+              radio.required = true;
+
+              const radioLabel = document.createElement("label");
+              radioLabel.htmlFor = `co${coNum}_rating${i}`;
+              radioLabel.textContent = i;
+
+              optionDiv.appendChild(radio);
+              optionDiv.appendChild(radioLabel);
+              ratingDiv.appendChild(optionDiv);
+            }
+
+            coBlock.appendChild(ratingDiv);
+            coContainer.appendChild(coBlock);
+          });
+        }
+      }
+
+      deptSelect.addEventListener("change", populateSubjects);
+      semSelect.addEventListener("change", populateSubjects);
+      subjSelect.addEventListener("change", showCOs);
+
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const enrollment = formData.get("enrollment");
+          const subject = formData.get("subject");
+
+          // First check if feedback already exists for this enrollment and subject
+          fetch(
+            `course-check-feedback.php?enrollment=${enrollment}&subject=${subject}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.exists) {
+                alert("You have already submitted feedback for this subject.");
+                return;
+              }
+
+              // If not exists, proceed with submission
+              fetch("course-feedback.php", {
+                method: "POST",
+                body: formData,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.success) {
+                    alert("Your feedback has been saved successfully!");
+                    this.reset();
+                    document.getElementById("coContainer").innerHTML = "";
+                  } else {
+                    alert("Error: " + data.message);
+                  }
+                })
+                .catch((error) => {
+                  alert("Error submitting feedback: " + error.message);
+                });
+            })
+            .catch((error) => {
+              alert("Error checking previous feedback: " + error.message);
+            });
+        });
+    </script>
+  </body>
+</html>

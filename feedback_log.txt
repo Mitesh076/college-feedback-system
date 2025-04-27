@@ -1,0 +1,22 @@
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Calculus
+    [subject_name] => Calculus
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 6
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications.
+    [co2_rating] => 7
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves.
+    [co3_rating] => 9
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications.
+    [co4_rating] => 10
+    [co5_text] => Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series.
+    [co5_rating] => 10
+    [comments] => no
+)

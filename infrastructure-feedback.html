@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Infrastructure Feedback Form</title>
+    <style>
+      :root {
+        --primary-color: #1e3a8a;
+        --accent-color: #7c3aed;
+        --hover-color: #6d28d9;
+        --text-color: #1f2937;
+        --secondary-text: #6b7280;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #d1d5db, #93c5fd, #c4b5fd);
+        background-size: 200% 200%;
+        animation: gradientFlow 12s ease infinite;
+        min-height: 100vh;
+        padding: 2rem;
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        max-width: 1000px;
+        width: 100%;
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .container:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        color: var(--primary-color);
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .student-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .student-details,
+      .infra-feedback {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .student-details:hover,
+      .infra-feedback:hover {
+        transform: translateY(-4px);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 1rem;
+        background: #f9fafb;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 8px rgba(124, 58, 237, 0.3);
+        background: #ffffff;
+        outline: none;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      input[type="radio"] {
+        margin-right: 0.5rem;
+        accent-color: var(--accent-color);
+      }
+
+      .question {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .question h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .submit-form {
+        text-align: center;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      input[type="submit"],
+      button {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        color: #ffffff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+        background: linear-gradient(90deg, #1e40af, #6d28d9);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      button {
+        background: linear-gradient(90deg, #6b7280, #4b5563);
+      }
+
+      button:hover {
+        background: linear-gradient(90deg, #4b5563, #374151);
+      }
+
+      .error {
+        color: #dc2626;
+        font-size: 0.9rem;
+        margin-top: -0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .infra-block {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        border-left: 4px solid var(--accent-color);
+        transition: transform 0.3s ease;
+      }
+
+      .infra-block:hover {
+        transform: translateY(-4px);
+      }
+
+      .infra-block label {
+        margin-bottom: 0.75rem;
+        color: var(--primary-color);
+      }
+
+      .rating-options {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .rating-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating-option label {
+        margin-left: 0.25rem;
+        font-weight: normal;
+        cursor: pointer;
+        color: var(--secondary-text);
+        text-transform: none;
+      }
+
+      select {
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="%231f2937" d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat right 0.75rem center;
+        background-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem;
+        }
+
+        .student-details,
+        .infra-feedback {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .rating-options {
+          gap: 0.5rem;
+        }
+
+        .submit-form {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        input[type="submit"],
+        button {
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Infrastructure Feedback Form</h1>
+      <form
+        id="feedbackForm"
+        class="student-form"
+        action="infrastructure-feedback.php"
+        method="POST"
+      >
+        <!-- Student Details Section -->
+        <div class="student-details">
+          <h3>Student Details</h3>
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="enrollment">Enrollment Number:</label>
+          <input
+            type="number"
+            id="enrollment"
+            name="enrollment"
+            required
+            pattern="[0-9]*"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+          />
+
+          <label for="year">Academic Year:</label>
+          <select name="year" id="year" required>
+            <option value="">Select Year</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
+
+          <label for="department">Department:</label>
+          <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="IT">Information Technology</option>
+            <option value="CE">Computer Engineering</option>
+          </select>
+
+          <label for="semester">Semester:</label>
+          <select id="semester" name="semester" required>
+            <option value="">Select Semester</option>
+            <option value="1">Sem 1</option>
+            <option value="2">Sem 2</option>
+            <option value="3">Sem 3</option>
+            <option value="4">Sem 4</option>
+            <option value="5">Sem 5</option>
+            <option value="6">Sem 6</option>
+            <option value="7">Sem 7</option>
+            <option value="8">Sem 8</option>
+          </select>
+
+          <label for="section">Section:</label>
+          <select name="section" id="section" required>
+            <option value="">Select Section</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <!-- Infrastructure Feedback -->
+        <div class="infra-feedback">
+          <h3>Infrastructure Feedback</h3>
+
+          <!-- Classrooms -->
+          <div class="infra-block">
+            <label>Classrooms (Cleanliness, Seating, Lighting):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="classroom_text"
+                value="Cleanliness, Seating, Lighting"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating1"
+                  name="classroom_rating"
+                  value="1"
+                  required
+                />
+                <label for="classroom_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating2"
+                  name="classroom_rating"
+                  value="2"
+                />
+                <label for="classroom_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating3"
+                  name="classroom_rating"
+                  value="3"
+                />
+                <label for="classroom_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating4"
+                  name="classroom_rating"
+                  value="4"
+                />
+                <label for="classroom_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating5"
+                  name="classroom_rating"
+                  value="5"
+                />
+                <label for="classroom_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating6"
+                  name="classroom_rating"
+                  value="6"
+                />
+                <label for="classroom_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating7"
+                  name="classroom_rating"
+                  value="7"
+                />
+                <label for="classroom_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating8"
+                  name="classroom_rating"
+                  value="8"
+                />
+                <label for="classroom_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating9"
+                  name="classroom_rating"
+                  value="9"
+                />
+                <label for="classroom_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="classroom_rating10"
+                  name="classroom_rating"
+                  value="10"
+                />
+                <label for="classroom_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computer Labs -->
+          <div class="infra-block">
+            <label>Computer Labs (Equipment, Software, Internet):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="lab_text"
+                value="Equipment, Software, Internet"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating1"
+                  name="lab_rating"
+                  value="1"
+                  required
+                />
+                <label for="lab_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating2"
+                  name="lab_rating"
+                  value="2"
+                />
+                <label for="lab_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating3"
+                  name="lab_rating"
+                  value="3"
+                />
+                <label for="lab_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating4"
+                  name="lab_rating"
+                  value="4"
+                />
+                <label for="lab_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating5"
+                  name="lab_rating"
+                  value="5"
+                />
+                <label for="lab_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating6"
+                  name="lab_rating"
+                  value="6"
+                />
+                <label for="lab_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating7"
+                  name="lab_rating"
+                  value="7"
+                />
+                <label for="lab_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating8"
+                  name="lab_rating"
+                  value="8"
+                />
+                <label for="lab_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating9"
+                  name="lab_rating"
+                  value="9"
+                />
+                <label for="lab_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="lab_rating10"
+                  name="lab_rating"
+                  value="10"
+                />
+                <label for="lab_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Library -->
+          <div class="infra-block">
+            <label>Library (Books, Accessibility, Environment):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="library_text"
+                value="Books, Accessibility, Environment"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating1"
+                  name="library_rating"
+                  value="1"
+                  required
+                />
+                <label for="library_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating2"
+                  name="library_rating"
+                  value="2"
+                />
+                <label for="library_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating3"
+                  name="library_rating"
+                  value="3"
+                />
+                <label for="library_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating4"
+                  name="library_rating"
+                  value="4"
+                />
+                <label for="library_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating5"
+                  name="library_rating"
+                  value="5"
+                />
+                <label for="library_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating6"
+                  name="library_rating"
+                  value="6"
+                />
+                <label for="library_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating7"
+                  name="library_rating"
+                  value="7"
+                />
+                <label for="library_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating8"
+                  name="library_rating"
+                  value="8"
+                />
+                <label for="library_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating9"
+                  name="library_rating"
+                  value="9"
+                />
+                <label for="library_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="library_rating10"
+                  name="library_rating"
+                  value="10"
+                />
+                <label for="library_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wi-Fi -->
+          <div class="infra-block">
+            <label>Wi-Fi (Speed, Coverage, Reliability):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="wifi_text"
+                value="Speed, Coverage, Reliability"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating1"
+                  name="wifi_rating"
+                  value="1"
+                  required
+                />
+                <label for="wifi_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating2"
+                  name="wifi_rating"
+                  value="2"
+                />
+                <label for="wifi_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating3"
+                  name="wifi_rating"
+                  value="3"
+                />
+                <label for="wifi_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating4"
+                  name="wifi_rating"
+                  value="4"
+                />
+                <label for="wifi_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating5"
+                  name="wifi_rating"
+                  value="5"
+                />
+                <label for="wifi_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating6"
+                  name="wifi_rating"
+                  value="6"
+                />
+                <label for="wifi_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating7"
+                  name="wifi_rating"
+                  value="7"
+                />
+                <label for="wifi_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating8"
+                  name="wifi_rating"
+                  value="8"
+                />
+                <label for="wifi_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating9"
+                  name="wifi_rating"
+                  value="9"
+                />
+                <label for="wifi_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="wifi_rating10"
+                  name="wifi_rating"
+                  value="10"
+                />
+                <label for="wifi_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Washrooms -->
+          <div class="infra-block">
+            <label>Washrooms (Cleanliness, Maintenance, Supplies):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="washroom_text"
+                value="Cleanliness, Maintenance, Supplies"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating1"
+                  name="washroom_rating"
+                  value="1"
+                  required
+                />
+                <label for="washroom_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating2"
+                  name="washroom_rating"
+                  value="2"
+                />
+                <label for="washroom_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating3"
+                  name="washroom_rating"
+                  value="3"
+                />
+                <label for="washroom_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating4"
+                  name="washroom_rating"
+                  value="4"
+                />
+                <label for="washroom_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating5"
+                  name="washroom_rating"
+                  value="5"
+                />
+                <label for="washroom_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating6"
+                  name="washroom_rating"
+                  value="6"
+                />
+                <label for="washroom_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating7"
+                  name="washroom_rating"
+                  value="7"
+                />
+                <label for="washroom_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating8"
+                  name="washroom_rating"
+                  value="8"
+                />
+                <label for="washroom_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating9"
+                  name="washroom_rating"
+                  value="9"
+                />
+                <label for="washroom_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="washroom_rating10"
+                  name="washroom_rating"
+                  value="10"
+                />
+                <label for="washroom_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parking -->
+          <div class="infra-block">
+            <label>Parking (Availability, Safety, Maintenance):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="parking_text"
+                value="Availability, Safety, Maintenance"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating1"
+                  name="parking_rating"
+                  value="1"
+                  required
+                />
+                <label for="parking_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating2"
+                  name="parking_rating"
+                  value="2"
+                />
+                <label for="parking_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating3"
+                  name="parking_rating"
+                  value="3"
+                />
+                <label for="parking_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating4"
+                  name="parking_rating"
+                  value="4"
+                />
+                <label for="parking_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating5"
+                  name="parking_rating"
+                  value="5"
+                />
+                <label for="parking_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating6"
+                  name="parking_rating"
+                  value="6"
+                />
+                <label for="parking_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating7"
+                  name="parking_rating"
+                  value="7"
+                />
+                <label for="parking_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating8"
+                  name="parking_rating"
+                  value="8"
+                />
+                <label for="parking_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating9"
+                  name="parking_rating"
+                  value="9"
+                />
+                <label for="parking_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="parking_rating10"
+                  name="parking_rating"
+                  value="10"
+                />
+                <label for="parking_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canteen -->
+          <div class="infra-block">
+            <label>Canteen (Hygiene, Food Quality, Service):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="canteen_text"
+                value="Hygiene, Food Quality, Service"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating1"
+                  name="canteen_rating"
+                  value="1"
+                  required
+                />
+                <label for="canteen_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating2"
+                  name="canteen_rating"
+                  value="2"
+                />
+                <label for="canteen_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating3"
+                  name="canteen_rating"
+                  value="3"
+                />
+                <label for="canteen_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating4"
+                  name="canteen_rating"
+                  value="4"
+                />
+                <label for="canteen_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating5"
+                  name="canteen_rating"
+                  value="5"
+                />
+                <label for="canteen_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating6"
+                  name="canteen_rating"
+                  value="6"
+                />
+                <label for="canteen_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating7"
+                  name="canteen_rating"
+                  value="7"
+                />
+                <label for="canteen_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating8"
+                  name="canteen_rating"
+                  value="8"
+                />
+                <label for="canteen_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating9"
+                  name="canteen_rating"
+                  value="9"
+                />
+                <label for="canteen_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="canteen_rating10"
+                  name="canteen_rating"
+                  value="10"
+                />
+                <label for="canteen_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="infra-block">
+            <label>Security (Personnel, Surveillance, Safety Measures):</label>
+            <div class="rating-options">
+              <input
+                type="hidden"
+                name="security_text"
+                value="Personnel, Surveillance, Safety Measures"
+              />
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating1"
+                  name="security_rating"
+                  value="1"
+                  required
+                />
+                <label for="security_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating2"
+                  name="security_rating"
+                  value="2"
+                />
+                <label for="security_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating3"
+                  name="security_rating"
+                  value="3"
+                />
+                <label for="security_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating4"
+                  name="security_rating"
+                  value="4"
+                />
+                <label for="security_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating5"
+                  name="security_rating"
+                  value="5"
+                />
+                <label for="security_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating6"
+                  name="security_rating"
+                  value="6"
+                />
+                <label for="security_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating7"
+                  name="security_rating"
+                  value="7"
+                />
+                <label for="security_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating8"
+                  name="security_rating"
+                  value="8"
+                />
+                <label for="security_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating9"
+                  name="security_rating"
+                  value="9"
+                />
+                <label for="security_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="security_rating10"
+                  name="security_rating"
+                  value="10"
+                />
+                <label for="security_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overall Rating -->
+          <div class="infra-block">
+            <label>Overall Infrastructure Satisfaction:</label>
+            <div class="rating-options">
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating1"
+                  name="overall_rating"
+                  value="1"
+                  required
+                />
+                <label for="overall_rating1">1</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating2"
+                  name="overall_rating"
+                  value="2"
+                />
+                <label for="overall_rating2">2</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating3"
+                  name="overall_rating"
+                  value="3"
+                />
+                <label for="overall_rating3">3</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating4"
+                  name="overall_rating"
+                  value="4"
+                />
+                <label for="overall_rating4">4</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating5"
+                  name="overall_rating"
+                  value="5"
+                />
+                <label for="overall_rating5">5</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating6"
+                  name="overall_rating"
+                  value="6"
+                />
+                <label for="overall_rating6">6</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating7"
+                  name="overall_rating"
+                  value="7"
+                />
+                <label for="overall_rating7">7</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating8"
+                  name="overall_rating"
+                  value="8"
+                />
+                <label for="overall_rating8">8</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating9"
+                  name="overall_rating"
+                  value="9"
+                />
+                <label for="overall_rating9">9</label>
+              </div>
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="overall_rating10"
+                  name="overall_rating"
+                  value="10"
+                />
+                <label for="overall_rating10">10</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Comments -->
+          <div class="question">
+            <h4>General Feedback</h4>
+            <label for="general_comments"
+              >Any additional suggestions for infrastructure improvement:</label
+            >
+            <textarea
+              id="general_comments"
+              name="general_comments"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-form">
+          <input type="submit" value="Submit Feedback" />
+          <button
+            onclick="window.location.href='student-dashboard.php'"
+            type="button"
+          >
+            Back to Dashboard
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const enrollmentInput = document.getElementById("enrollment");
+
+      // Restrict enrollment input to numbers only
+      enrollmentInput.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, "");
+      });
+
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const enrollment = formData.get("enrollment");
+          const year = formData.get("year");
+          const department = formData.get("department");
+          const semester = formData.get("semester");
+          const section = formData.get("section");
+
+          // Check if feedback already exists for this enrollment, year, department, semester, and section
+          fetch(
+            `infrastructure-check-feedback.php?enrollment=${enrollment}&year=${year}&department=${department}&semester=${semester}&section=${section}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.exists) {
+                alert(
+                  "You have already submitted infrastructure feedback for this academic year."
+                );
+                return;
+              }
+
+              // If not exists, proceed with submission
+              fetch("infrastructure-feedback.php", {
+                method: "POST",
+                body: formData,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.success) {
+                    alert("Your feedback has been saved successfully!");
+                    this.reset();
+                  } else {
+                    alert("Error: " + data.message);
+                  }
+                })
+                .catch((error) => {
+                  alert("Error submitting feedback: " + error.message);
+                });
+            })
+            .catch((error) => {
+              alert("Error checking previous feedback: " + error.message);
+            });
+        });
+    </script>
+  </body>
+</html>

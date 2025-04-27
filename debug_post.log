@@ -1,0 +1,221 @@
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Calculus
+    [subject_name] => Calculus
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 7
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications.
+    [co2_rating] => 7
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves.
+    [co3_rating] => 7
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications.
+    [co4_rating] => 8
+    [co5_text] => Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series.
+    [co5_rating] => 9
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 1234
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Calculus
+    [subject_name] => Calculus
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 7
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications.
+    [co2_rating] => 8
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves.
+    [co3_rating] => 8
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications.
+    [co4_rating] => 8
+    [co5_text] => Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series.
+    [co5_rating] => 9
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Introduction to Computer Programming with C
+    [subject_name] => Introduction to Computer Programming with C
+    [co1_text] => Formulate algorithm and/or flowchart for a given problem
+    [co1_rating] => 7
+    [co2_text] => Translate algorithm and/or flowchart into C program using correct syntax and execute it.
+    [co2_rating] => 7
+    [co3_text] => Write programs using control structures, arrays, functions, structures.
+    [co3_rating] => 7
+    [co4_text] => Decompose a problem and formulate solutions using functions.
+    [co4_rating] => 7
+    [co5_text] => Apply concepts of array, pointer, structure, functions, recursion and file management to solve engineering and/or scientific problems.
+    [co5_rating] => 7
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Basics-of-Electrical-and-Electronics-Engineering
+    [subject_name] => Basics-of-Electrical-and-Electronics-Engineering
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 6
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications
+    [co2_rating] => 7
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves
+    [co3_rating] => 8
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications
+    [co4_rating] => 9
+    [co5_text] => Check that given an infinite series is convergent or divergent...
+    [co5_rating] => 10
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [teacher] => Jagruti Prajapati
+    [subject] => Calculus
+    [subject_name] => Calculus
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 6
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications.
+    [co2_rating] => 7
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves.
+    [co3_rating] => 8
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications.
+    [co4_rating] => 9
+    [co5_text] => Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series.
+    [co5_rating] => 10
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [teacher] => Jagruti Prajapati
+    [subject] => Introduction to Computer Programming with C
+    [subject_name] => Introduction to Computer Programming with C
+    [co1_text] => Formulate algorithm and/or flowchart for a given problem
+    [co1_rating] => 6
+    [co2_text] => Translate algorithm and/or flowchart into C program using correct syntax and execute it.
+    [co2_rating] => 7
+    [co3_text] => Write programs using control structures, arrays, functions, structures.
+    [co3_rating] => 8
+    [co4_text] => Decompose a problem and formulate solutions using functions.
+    [co4_rating] => 9
+    [co5_text] => Apply concepts of array, pointer, structure, functions, recursion and file management to solve engineering and/or scientific problems.
+    [co5_rating] => 9
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [teacher] => Dhruval Kachhiya
+    [subject] => Indian Constitution
+    [subject_name] => Indian Constitution
+    [co1_text] => Enhance human values, create awareness about law enactment and importance of the constitution.
+    [co1_rating] => 6
+    [co2_text] => To Understand the Fundamental Rights and Fundamental Duties...
+    [co2_rating] => 7
+    [co3_text] => Create Awareness of their Surroundings, Society, Social problems...
+    [co3_rating] => 8
+    [co4_text] => Understand distribution of powers and functions of Local Self Government
+    [co4_rating] => 9
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [teacher] => Niraj K. Chawda
+    [subject] => Introduction to Computer Programming with C
+    [subject_name] => Introduction to Computer Programming with C
+    [co1_text] => Formulate algorithm and/or flowchart for a given problem
+    [co1_rating] => 5
+    [co2_text] => Translate algorithm and/or flowchart into C program using correct syntax and execute it.
+    [co2_rating] => 6
+    [co3_text] => Write programs using control structures, arrays, functions, structures.
+    [co3_rating] => 7
+    [co4_text] => Decompose a problem and formulate solutions using functions.
+    [co4_rating] => 8
+    [co5_text] => Apply concepts of array, pointer, structure, functions, recursion and file management to solve engineering and/or scientific problems.
+    [co5_rating] => 8
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 123
+    [year] => 2025
+    [department] => IT
+    [semester] => 1
+    [section] => 1
+    [subject] => Indian Constitution
+    [subject_name] => Indian Constitution
+    [co1_text] => Enhance human values, create awareness about law enactment and importance of the constitution.
+    [co1_rating] => 7
+    [co2_text] => To Understand the Fundamental Rights and Fundamental Duties...
+    [co2_rating] => 8
+    [co3_text] => Create Awareness of their Surroundings, Society, Social problems...
+    [co3_rating] => 9
+    [co4_text] => Understand distribution of powers and functions of Local Self Government
+    [co4_rating] => 10
+    [comments] => no
+)
+Array
+(
+    [name] => nand
+    [enrollment] => 1037
+    [year] => 2023
+    [department] => CE
+    [semester] => 1
+    [section] => 1
+    [teacher] => Niraj K. Chawda
+    [subject] => Calculus
+    [subject_name] => Calculus
+    [co1_text] => Extend their learning of differential calculus at plus two levels
+    [co1_rating] => 9
+    [co2_text] => Get necessary knowledge of functions of several variables and its applications
+    [co2_rating] => 9
+    [co3_text] => Free hand traces the curves in Cartesian, Parametric and Polar curves
+    [co3_rating] => 9
+    [co4_text] => Extend their knowledge of integration of one variable to two and three variables and its applications
+    [co4_rating] => 9
+    [co5_text] => Check that given an infinite series is convergent or divergent by using different methods. Also, they can be able to find radius and interval of convergence for the power series
+    [co5_rating] => 9
+    [comments] => DSADSADSDADASD
+)
