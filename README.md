@@ -11,33 +11,38 @@ The **College Feedback System** is a web-based application designed to collect, 
 - **Dashboard:** A centralized dashboard (`student-dashboard.php`) for students to access feedback forms for faculty, courses, and infrastructure.
 - **Feedback Submission:**
   - **Faculty Feedback:** Rate faculty performance and teaching methods (1-10 scale for course outcomes, CO1-CO7).
-   -  **Course Feedback:** Provide feedback on course content and structure (1-10 scale for CO1-CO7).
-   -  **Infrastructure Feedback:** Rate campus facilities like classrooms, labs, library, Wi-Fi, washrooms, parking, canteen, and security (1-10 scale).
+  - **Course Feedback:** Provide feedback on course content and structure (1-10 scale for CO1-CO7).
+  - **Infrastructure Feedback:** Rate campus facilities like classrooms, labs, library, Wi-Fi, washrooms, parking, canteen, and security (1-10 scale).
 - **Duplicate Check:** Prevents multiple submissions for the same feedback type using AJAX-based checks.
 - **Responsive UI:** Modern, mobile-friendly design with gradients and hover effects.
 
 **Admin Features**
-  - **Dashboard:** Centralized admin dashboard (`admin-dashboard.php`) with links to manage users and view feedback.
-   -  **Feedback Management:**
-      -  View all feedback submissions (`faculty-display-feedback.php`, `course-display-feedback.php`, `infrastructure-display-feedback.php`) with filters for department, semester, section, and year.
-      -  Delete specific feedback entries (`faculty-delete-feedback.php`, `course-delete-feedback.php`, `infrastructure-delete-feedback.php`).
-  - **Reports:** Generate reports with average ratings and bar charts (`faculty-generate-report.php`, `course-generate-report.php`, `infrastructure-generate-report.php`).
-  - **Export:** Download feedback data as Excel files (`faculty-export-to-excel.php`, `course-export-to-excel.php`, `infrastructure-export-to-excel.php`).
-  - **User Management:** Add or delete users (admins and students) via `view-users.php`.
-  - **Feedback Options:** Select feedback types to view (`view-feedback-options.php`).
-  
+
+- **Dashboard:** Centralized admin dashboard (`admin-dashboard.php`) with links to manage users and view feedback.
+- **Feedback Management:**
+  - View all feedback submissions (`faculty-display-feedback.php`, `course-display-feedback.php`, `infrastructure-display-feedback.php`) with filters for department, semester, section, and year.
+  - Delete specific feedback entries (`faculty-delete-feedback.php`, `course-delete-feedback.php`, `infrastructure-delete-feedback.php`).
+- **Reports:** Generate reports with average ratings and bar charts (`faculty-generate-report.php`, `course-generate-report.php`, `infrastructure-generate-report.php`).
+- **Export:** Download feedback data as Excel files (`faculty-export-to-excel.php`, `course-export-to-excel.php`, `infrastructure-export-to-excel.php`).
+- **User Management:** Add or delete users (admins and students) via `view-users.php`.
+- **Feedback Options:** Select feedback types to view (`view-feedback-options.php`).
+
 **General Features**
-  - **Authentication:** Role-based login system (`login.php`, `authenticate.php`, `logout.php`) supporting students and admins.
-  - **Database:** MySQL database (`student_feedback`) with tables for `users`, `course_feedback`, `faculty_feedback`, and `infrastructure_feedback`.
-  - **AJAX:** Seamless form submissions and duplicate checks for a smooth user experience.
-  - **Visualizations:** Chart.js for graphical representation of feedback data in reports.
 
-## Tech Stack
+- **Authentication:** Role-based login system (`login.php`, `authenticate.php`, `logout.php`) supporting students and admins.
+- **Database:** MySQL database (`student_feedback`) with tables for `users`, `course_feedback`, `faculty_feedback`, and `infrastructure_feedback`.
+- **AJAX:** Seamless form submissions and duplicate checks for a smooth user experience.
+- **Visualizations:** Chart.js for graphical representation of feedback data in reports.
 
-- _Frontend_: HTML, CSS (with Tailwind-inspired custom styles), JavaScript
-- _Backend_: Node.js, Express.js
-- _Database_: MongoDB with Mongoose
-- _Dependencies_: bcrypt (for password hashing), express-session (for session management)
+## Prerequisites
+
+To run the College Feedback System, you need:
+
+- **XAMPP:** For Apache and MySQL servers (download from https://www.apachefriends.org/).
+- **Web Browser:** Chrome, Firefox, or any modern browser.
+- **PHP:** Version 7.4 or higher (included in XAMPP).
+- **MySQL:** Included in XAMPP.
+- **Text Editor:** VS Code, Sublime Text, or any editor for code inspection (optional).
 
 ## Installation
 
