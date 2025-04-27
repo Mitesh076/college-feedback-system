@@ -19,8 +19,8 @@ The **College Feedback System** is a web-based application designed to collect, 
 **Admin Features**
   - **Dashboard:** Centralized admin dashboard (`admin-dashboard.php`) with links to manage users and view feedback.
    -  **Feedback Management:**
-   -  View all feedback submissions (`faculty-display-feedback.php`, `course-display-feedback.php`, `infrastructure-display-feedback.php`) with filters for department, semester, section, and year.
-   -  Delete specific feedback entries (`faculty-delete-feedback.php`, `course-delete-feedback.php`, `infrastructure-delete-feedback.php`).
+      -  View all feedback submissions (`faculty-display-feedback.php`, `course-display-feedback.php`, `infrastructure-display-feedback.php`) with filters for department, semester, section, and year.
+      -  Delete specific feedback entries (`faculty-delete-feedback.php`, `course-delete-feedback.php`, `infrastructure-delete-feedback.php`).
   - **Reports:** Generate reports with average ratings and bar charts (`faculty-generate-report.php`, `course-generate-report.php`, `infrastructure-generate-report.php`).
   - **Export:** Download feedback data as Excel files (`faculty-export-to-excel.php`, `course-export-to-excel.php`, `infrastructure-export-to-excel.php`).
   - **User Management:** Add or delete users (admins and students) via `view-users.php`.
