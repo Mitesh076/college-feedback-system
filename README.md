@@ -16,7 +16,7 @@ The **College Feedback System** is a web-based application designed to collect, 
 - **Duplicate Check:** Prevents multiple submissions for the same feedback type using AJAX-based checks.
 - **Responsive UI:** Modern, mobile-friendly design with gradients and hover effects.
 
-  **Admin Features**
+**Admin Features**
   - **Dashboard:** Centralized admin dashboard (`admin-dashboard.php`) with links to manage users and view feedback.
  - **Feedback Management:**
  - -  View all feedback submissions (`faculty-display-feedback.php`, `course-display-feedback.php`, `infrastructure-display-feedback.php`) with filters for department, semester, section, and year.
