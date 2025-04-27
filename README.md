@@ -57,25 +57,25 @@ To run the College Feedback System, you need:
 - bash git clone https://github.com/your-username/college-feedback-system.git
 - Alternatively, download the ZIP file and extract it.
 
-Move Project to XAMPP:
+**3. Move Project to XAMPP:**
 
-Copy the college-feedback-system folder to the htdocs directory in your XAMPP installation (e.g., C:\xampp\htdocs\ on Windows).
+   - Copy the `college-feedback-system` folder to the `htdocs` directory in your XAMPP installation (e.g.,` C:\xampp\htdocs\` on Windows).
 
-Set Up the Database:
+**4. Set Up the Database:**
 
-Open the XAMPP Control Panel and start the Apache and MySQL servers.
+   - Open the XAMPP Control Panel and start the **Apache** and **MySQL** servers.
 
-Open your browser and navigate to http://localhost/phpmyadmin.
+   - Open your browser and navigate to` http://localhost/phpmyadmin`.
 
-Create a new database named student_feedback.
+   - Create a new database named `student_feedback`.
 
-Import the table.sql file from the project root:
+   - Import the `table.sql` file from the project root:
 
-In phpMyAdmin, select the student_feedback database.
+      - In phpMyAdmin, select the `student_feedback` database.
 
-Go to the Import tab, choose table.sql, and click Go.
+      - Go to the **Import** tab, choose `table.sql`, and click Go.
 
-Configure Database Connection:
+**5. Configure Database Connection:**
 
 Ensure the database connection settings in PHP files (e.g., authenticate.php, infrastructure-feedback.php, view-users.php) match your setup:
 
