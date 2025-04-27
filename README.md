@@ -54,7 +54,7 @@ To run the College Feedback System, you need:
 **2.Clone the Repository:**
 
 - Clone this repository to your local machine:
- ``` git clone https://github.com/your-username/college-feedback-system.git ```
+- ``` git clone https://github.com/your-username/college-feedback-system.git ```
 - Alternatively, download the ZIP file and extract it.
 
 Move Project to XAMPP:
