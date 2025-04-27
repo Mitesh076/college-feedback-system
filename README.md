@@ -9,7 +9,7 @@ The **College Feedback System** is a web-based application designed to collect, 
 **_Student Features_**
 
 - **Dashboard:** A centralized dashboard (`student-dashboard.php`) for students to access feedback forms for faculty, courses, and infrastructure.
-- **_Feedback Submission:_**
+- - **_Feedback Submission:_**
 - **_Faculty Feedback:_** Rate faculty performance and teaching methods (1-5 scale for course outcomes, CO1-CO7).
 - **Course Feedback:** Provide feedback on course content and structure (1-5 scale for CO1-CO7).
   Infrastructure Feedback: Rate campus facilities like classrooms, labs, library, Wi-Fi, washrooms, parking, canteen, and security (1-10 scale).
