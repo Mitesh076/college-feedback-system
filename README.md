@@ -2,7 +2,7 @@
 
 ## Overview
 
-The _College Feedback System_ is a web-based application designed to collect, manage, and analyze feedback from students about faculty, courses, and campus infrastructure. Built with PHP, MySQL, HTML, CSS, and JavaScript, the system provides a user-friendly interface for students to submit feedback and for administrators to view, report, and export feedback data. It features role-based access (students and admins), responsive design, and visualizations using Chart.js.
+The **College Feedback System** is a web-based application designed to collect, manage, and analyze feedback from students about faculty, courses, and campus infrastructure. Built with PHP, MySQL, HTML, CSS, and JavaScript, the system provides a user-friendly interface for students to submit feedback and for administrators to view, report, and export feedback data. It features role-based access (students and admins), responsive design, and visualizations using Chart.js.
 
 ## Features
 
