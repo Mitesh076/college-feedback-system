@@ -167,7 +167,7 @@ The `student_feedback` database includes:
    - **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
 
 
--**Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
+- **Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
 
 ## Acknowledgments
 
