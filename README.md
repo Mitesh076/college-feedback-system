@@ -41,8 +41,9 @@ _Student Features_
 
 1. _Clone the repository:_
 
-   bash
+   ```bash
    git clone https://github.com/ekalavya-cmd/graphical-auth-system.git
+   ```
 
 2. _Navigate to the project directory:_
 
