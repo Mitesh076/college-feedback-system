@@ -46,12 +46,12 @@ To run the College Feedback System, you need:
 
 ## Setup Instructions
 
-1. **Install XAMPP:**
+**1. Install XAMPP:**
 
 - Download and install XAMPP for your operating system.
 - Ensure Apache and MySQL modules are enabled in the XAMPP Control Panel.
 
-  2. **Clone the Repository:**
+**2. Clone the Repository:**
 
 - Clone this repository to your local machine:
 
@@ -61,11 +61,11 @@ To run the College Feedback System, you need:
 
 - Alternatively, download the ZIP file and extract it.
 
-3. **Move Project to XAMPP:**
+**3. Move Project to XAMPP:**
 
 - Copy the `college-feedback-system` folder to the `htdocs` directory in your XAMPP installation (e.g.,` C:\xampp\htdocs\` on Windows).
 
-4. **Set Up the Database:**
+**4. Set Up the Database:**
 
 - Open the XAMPP Control Panel and start the **Apache** and **MySQL** servers.
 
@@ -79,7 +79,7 @@ To run the College Feedback System, you need:
 
 - Go to the **Import** tab, choose `table.sql`, and click **Go**.
 
-5. **Configure Database Connection:**
+**5. Configure Database Connection:**
 
 - Ensure the database connection settings in PHP files (e.g., `authenticate.php`, `infrastructure-feedback.php`, `view-users.php`) match your setup:
 
@@ -89,7 +89,7 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
 - The default MySQL user is `root` with an empty password (`""`). Update if your MySQL setup uses different credentials.
 
-6. **Test Database Connection:**
+**6. Test Database Connection:**
 
 - Run `db_test.php` by navigating to `http://localhost/college-feedback-system/db_test.php.`
 
