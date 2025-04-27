@@ -46,19 +46,16 @@ To run the College Feedback System, you need:
 
 ## Setup Instructions
 
-1.**Install XAMPP:**
+**1.Install XAMPP:**
 
-Download and install XAMPP for your operating system.
+- Download and install XAMPP for your operating system.
+- Ensure Apache and MySQL modules are enabled in the XAMPP Control Panel.
 
-Ensure Apache and MySQL modules are enabled in the XAMPP Control Panel.
+**2.Clone the Repository:**
 
-Clone the Repository:
-
-Clone this repository to your local machine:
-
-git clone https://github.com/your-username/college-feedback-system.git
-
-Alternatively, download the ZIP file and extract it.
+- Clone this repository to your local machine:
+- `git clone https://github.com/your-username/college-feedback-system.git`
+- Alternatively, download the ZIP file and extract it.
 
 Move Project to XAMPP:
 
