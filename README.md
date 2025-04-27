@@ -83,7 +83,9 @@ To run the College Feedback System, you need:
 
 - Ensure the database connection settings in PHP files (e.g., `authenticate.php`, `infrastructure-feedback.php`, `view-users.php`) match your setup:
 
-- $conn = new mysqli("localhost", "root", "", "student_feedback");
+```bash
+$conn = new mysqli("localhost", "root", "", "student_feedback");
+```
 
 - The default MySQL user is `root` with an empty password (`""`). Update if your MySQL setup uses different credentials.
 
