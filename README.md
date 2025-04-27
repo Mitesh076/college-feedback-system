@@ -116,9 +116,45 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
    - **Note:** You may need to add users via `view-users.php` (admin access) or directly in the `users` table.
 
-## Contributing
 
-Contributions are welcome! Please fork the repository and submit pull requests for any enhancements or bug fixes.
+## Directory Structure
+
+```bash 
+college-feedback-system/
+├── admin-dashboard.php              # Admin dashboard
+├── admin.css                        # CSS for admin pages (not fully integrated)
+├── authenticate.php                 # Handles login authentication
+├── course-check-feedback.php        # Checks for duplicate course feedback
+├── course-delete-feedback.php       # Deletes course feedback
+├── course-display-feedback.php      # Displays course feedback
+├── course-export-to-excel.php       # Exports course feedback to Excel
+├── course-feedback.html             # Course feedback form
+├── course-feedback.php              # Processes course feedback
+├── course-generate-report.php       # Generates course feedback reports
+├── course-report.css                # CSS for course feedback reports
+├── db_test.php                      # Tests database connection
+├── faculty-check-feedback.php       # Checks for duplicate faculty feedback
+├── faculty-delete-feedback.php      # Deletes faculty feedback
+├── faculty-display-feedback.php     # Displays faculty feedback
+├── faculty-export-to-excel.php      # Exports faculty feedback to Excel
+├── faculty-feedback.html            # Faculty feedback form
+├── faculty-feedback.php             # Processes faculty feedback
+├── faculty-generate-report.php      # Generates faculty feedback reports
+├── infrastructure-check-feedback.php # Checks for duplicate infrastructure feedback
+├── infrastructure-delete-feedback.php # Deletes infrastructure feedback
+├── infrastructure-display-feedback.php # Displays infrastructure feedback
+├── infrastructure-export-to-excel.php # Exports infrastructure feedback to Excel
+├── infrastructure-feedback.html     # Infrastructure feedback form
+├── infrastructure-feedback.php      # Processes infrastructure feedback
+├── infrastructure-generate-report.php # Generates infrastructure feedback reports
+├── login.php                        # Login page
+├── logout.php                       # Logout script
+├── student-dashboard.php            # Student dashboard
+├── table.sql                        # Database schema
+├── view-feedback-options.php        # Admin page to select feedback types
+├── view-users.php                   # Admin page to manage users
+└── README.md                        # Project documentation
+```
 
 ## License
 
