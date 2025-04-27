@@ -54,66 +54,60 @@ To run the College Feedback System, you need:
 **2. Clone the Repository:**
 
 - Clone this repository to your local machine:
-- bash git clone https://github.com/your-username/college-feedback-system.git
+- ```bash
+  git clone https://github.com/your-username/college-feedback-system.git
+  ```
 - Alternatively, download the ZIP file and extract it.
 
 **3. Move Project to XAMPP:**
 
-   - Copy the `college-feedback-system` folder to the `htdocs` directory in your XAMPP installation (e.g.,` C:\xampp\htdocs\` on Windows).
+- Copy the `college-feedback-system` folder to the `htdocs` directory in your XAMPP installation (e.g.,` C:\xampp\htdocs\` on Windows).
 
 **4. Set Up the Database:**
 
-   - Open the XAMPP Control Panel and start the **Apache** and **MySQL** servers.
+- Open the XAMPP Control Panel and start the **Apache** and **MySQL** servers.
 
-   - Open your browser and navigate to` http://localhost/phpmyadmin`.
+- Open your browser and navigate to` http://localhost/phpmyadmin`.
 
-   - Create a new database named `student_feedback`.
+- Create a new database named `student_feedback`.
 
-   - Import the `table.sql` file from the project root:
+- Import the `table.sql` file from the project root:
 
-      - In phpMyAdmin, select the `student_feedback` database.
+- In phpMyAdmin, select the `student_feedback` database.
 
-      - Go to the **Import** tab, choose `table.sql`, and click **Go**.
+- Go to the **Import** tab, choose `table.sql`, and click **Go**.
 
 **5. Configure Database Connection:**
 
-   - Ensure the database connection settings in PHP files (e.g., `authenticate.php`, `infrastructure-feedback.php`, `view-users.php`) match your setup:
+- Ensure the database connection settings in PHP files (e.g., `authenticate.php`, `infrastructure-feedback.php`, `view-users.php`) match your setup:
 
-   - $conn = new mysqli("localhost", "root", "", "student_feedback");
+- $conn = new mysqli("localhost", "root", "", "student_feedback");
 
-   - The default MySQL user is `root` with an empty password (`""`). Update if your MySQL setup uses different credentials.
+- The default MySQL user is `root` with an empty password (`""`). Update if your MySQL setup uses different credentials.
 
 **6. Test Database Connection:**
 
-   - Run `db_test.php` by navigating to `http://localhost/college-feedback-system/db_test.php.`
+- Run `db_test.php` by navigating to `http://localhost/college-feedback-system/db_test.php.`
 
-   - Verify it outputs "Connected successfully".
+- Verify it outputs "Connected successfully".
 
-## Usage
+## Running the Project
 
-1. _Registration:_
+Start the XAMPP Control Panel.
 
-- Navigate to the registration page by following the "New to GAS? Register" link on the login page.
-- Complete the eight registration layers sequentially:
-  - _Layer 1:_ Enter email (must end with @gas.com), username, and password.
-  - _Layer 2:_ Mark at least 3 points on an image.
-  - _Layer 3:_ Select at least 3 colors from a color wheel.
-  - _Layer 4:_ Draw a pattern with at least 3 dots.
-  - _Layer 5:_ Select at least 3 audio clips in sequence.
-  - _Layer 6:_ Arrange a 3x3 puzzle with numbered pieces.
-  - _Layer 7:_ Choose at least 3 emojis in sequence.
-  - _Layer 8:_ Pair 3 left names with 3 right names using drag-and-drop.
-- Submit each layer to proceed to the next until registration is complete.
+Ensure Apache and MySQL servers are running.
 
-2. _Login:_
+Open a web browser and navigate to:
 
-- Enter your email or username on the login page and click "Next" to select an authentication layer.
-- Complete the chosen layer's challenge (e.g., entering a password, marking points, etc.).
-- Successfully passing all required layers redirects you to the homepage.
+http://localhost/college-feedback-system/login.php
 
-3. _Logout:_
+Log in with your credentials:
 
-- Click the "Logout" button on the homepage to end your session and return to the login page.
+Admin: Access the admin dashboard, user management, feedback viewing, and reporting.
+
+Student: Access the student dashboard to submit feedback.
+
+Note: You may need to add users via view-users.php (admin access) or directly in the users table.
 
 ## Contributing
 
@@ -127,3 +121,7 @@ This project is licensed under the ISC License.
 
 - Inspired by advanced authentication research and interactive web technologies.
 - Thanks to the open-source community for tools like Express.js and Mongoose.
+
+```
+
+```
