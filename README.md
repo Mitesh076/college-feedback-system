@@ -55,7 +55,7 @@ To run the College Feedback System, you need:
 
 - Clone this repository to your local machine:
 
-```bash
+``` bash
  git clone https://github.com/your-username/college-feedback-system.git
 ```
 
