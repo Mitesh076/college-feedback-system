@@ -73,21 +73,21 @@ To run the College Feedback System, you need:
 
       - In phpMyAdmin, select the `student_feedback` database.
 
-      - Go to the **Import** tab, choose `table.sql`, and click Go.
+      - Go to the **Import** tab, choose `table.sql`, and click **Go**.
 
 **5. Configure Database Connection:**
 
-Ensure the database connection settings in PHP files (e.g., authenticate.php, infrastructure-feedback.php, view-users.php) match your setup:
+   - Ensure the database connection settings in PHP files (e.g., `authenticate.php`, `infrastructure-feedback.php`, `view-users.php`) match your setup:
 
-$conn = new mysqli("localhost", "root", "", "student_feedback");
+   - $conn = new mysqli("localhost", "root", "", "student_feedback");
 
-The default MySQL user is root with an empty password (""). Update if your MySQL setup uses different credentials.
+   - The default MySQL user is `root` with an empty password (`""`). Update if your MySQL setup uses different credentials.
 
-Test Database Connection:
+**6. Test Database Connection:**
 
-Run db_test.php by navigating to http://localhost/college-feedback-system/db_test.php.
+   - Run `db_test.php` by navigating to `http://localhost/college-feedback-system/db_test.php.`
 
-Verify it outputs "Connected successfully".
+   - Verify it outputs "Connected successfully".
 
 ## Usage
 
