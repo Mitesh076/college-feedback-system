@@ -167,11 +167,66 @@ The `student_feedback` database includes:
 - **infrastructure_feedback:** Stores infrastructure feedback with facility ratings (1-10 scale).
 - **Note:** The `users` table defines `name` but code references `username`. Ensure consistency in your setup (e.g., use `name` as `username`).
 
-## Acknowledgments
+## Usage
 
-- Inspired by advanced authentication research and interactive web technologies.
-- Thanks to the open-source community for tools like Express.js and Mongoose.
+**For Students**
 
-```
+1. Log in with student credentials at `http://localhost/college-feedback-system/login.php`.
 
-```
+2. Access the student dashboard (`student-dashboard.php`).
+
+3. Click on a feedback type (`Faculty`, `Course`, `Infrastructure`) to submit feedback.
+
+4. Fill out the form and submit. Duplicate submissions are prevented.
+
+## For Admins
+
+1. Log in with admin credentials.
+
+2. Access the admin dashboard (`admin-dashboard.php`).
+
+3. Navigate to:
+
+   -  Manage Users (`view-users.php`) to add or delete users.
+
+   - View Feedback (`view-feedback-options.php`) to select feedback types.
+
+4. Use display pages to filter and delete feedback.
+
+5. Generate reports with charts or export data to Excel.
+
+## Known Considerations
+
+- **Authentication:** `authenticate.php` uses plain SQL queries, which may be vulnerable to SQL injection. Consider using prepared statements for production.
+
+- **Security:** Passwords are stored in plaintext in the `users` table. Consider hashing passwords for production use.
+
+- **Excel Export:** Uses HTML-based export, which may not render perfectly in modern Excel versions.
+
+- **Navigation:** Some pages (e.g., `admin-dashboard.php`, `student-dashboard.php`) link to `login.php` instead of `logout.php` for `logout` functionality.
+
+- **CSS Integration:** `admin.css` is provided but not linked in `admin-dashboard.php`, which uses inline CSS. Ensure consistent styling.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+
+2. Create a new branch (git checkout -b feature/your-feature).
+
+3. Make your changes and commit (git commit -m "Add your feature").
+
+4. Push to your branch (git push origin feature/your-feature).
+
+5. Open a Pull Request.
+
+Please ensure your changes align with the existing codebase and UI style.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+For questions or support, please open an issue on GitHub or contact the project maintainer at your-email@example.com.
