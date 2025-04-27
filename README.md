@@ -30,7 +30,7 @@ _Student Features_
   AJAX: Seamless form submissions and duplicate checks for a smooth user experience.
   Visualizations: Chart.js for graphical representation of feedback data in reports.
 
-## Tech Stack 
+## Tech Stack
 
 - _Frontend_: HTML, CSS (with Tailwind-inspired custom styles), JavaScript
 - _Backend_: Node.js, Express.js
