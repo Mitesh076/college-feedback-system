@@ -53,9 +53,9 @@ To run the College Feedback System, you need:
 
 2. **Clone the repository:**
 
-  ``` bash
+```bash
    git clone https://github.com/ekalavya-cmd/graphical-auth-system.git
-   ```
+```
 
 - Alternatively, download the ZIP file and extract it.
 
