@@ -95,23 +95,26 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 
 - Verify it outputs "Connected successfully".
 
+
 ## Running the Project
 
-Start the XAMPP Control Panel.
+1. Start the XAMPP Control Panel.
 
-Ensure Apache and MySQL servers are running.
+2. Ensure `Apache` and `MySQL` servers are running.
 
-Open a web browser and navigate to:
+3. Open a web browser and navigate to:
 
-http://localhost/college-feedback-system/login.php
+```bash 
+ http://localhost/college-feedback-system/login.php
+```
 
-Log in with your credentials:
+4. Log in with your credentials:
 
-Admin: Access the admin dashboard, user management, feedback viewing, and reporting.
+   - **Admin:** Access the admin dashboard, user management, feedback viewing, and reporting.
 
-Student: Access the student dashboard to submit feedback.
+   - **Student:** Access the student dashboard to submit feedback.
 
-Note: You may need to add users via view-users.php (admin access) or directly in the users table.
+   - **Note:** You may need to add users via `view-users.php` (admin access) or directly in the `users` table.
 
 ## Contributing
 
