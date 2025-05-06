@@ -229,4 +229,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 
-For questions or support, please open an issue on GitHub or contact the project maintainer at miteshbharvad888@gmail.com.
+For questions or support, please open an issue on GitHub or contact the project maintainer at miteshbharvad733@gmail.com.
