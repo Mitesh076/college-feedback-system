@@ -108,7 +108,6 @@ $conn = new mysqli("localhost", "root", "", "student_feedback");
 ```
 
 4. Log in with your credentials:
-
    - **Admin:** Access the admin dashboard, user management, feedback viewing, and reporting.
 
    - **Student:** Access the student dashboard to submit feedback.
@@ -186,8 +185,7 @@ The `student_feedback` database includes:
 2. Access the admin dashboard (`admin-dashboard.php`).
 
 3. Navigate to:
-
-   -  Manage Users (`view-users.php`) to add or delete users.
+   - Manage Users (`view-users.php`) to add or delete users.
 
    - View Feedback (`view-feedback-options.php`) to select feedback types.
 
@@ -222,6 +220,11 @@ Contributions are welcome! To contribute:
 5. Open a Pull Request.
 
 Please ensure your changes align with the existing codebase and UI style.
+
+## Project Preview
+
+![Project Screenshot](1.png)
+![Project Screenshot](2.png)![Project Screenshot](13.png)![Project Screenshot](14.png)![Project Screenshot](15.png)![Project Screenshot](16.png)![Project Screenshot](18.png)
 
 ## License
 
